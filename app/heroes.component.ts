@@ -16,6 +16,7 @@ import { HeroapiService } from './heroapi.service';
 
 export class HeroesComponent implements OnInit {
 
+  hero: Hero;
   selectedHero: Hero;
   heroes: Hero[];
 
@@ -23,7 +24,7 @@ export class HeroesComponent implements OnInit {
     private heroService: HeroService,
     private heroapiService: HeroapiService,
     private router: Router) {
-
+      this.hero = new Hero(0,'');
   }
   onSelect(hero: Hero) {
     this.selectedHero = hero;
@@ -100,6 +101,16 @@ export class HeroesComponent implements OnInit {
        res => console.log(res),
        err => console.log(err)       
      );
+  }
+
+  isValidName(value: string): boolean {
+    let valid = false;
+    if(value){
+      if (value.trim() !== ''){
+        valid = true;        
+      }       
+    }
+    return valid;
   }
 }
 

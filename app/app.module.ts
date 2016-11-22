@@ -1,6 +1,6 @@
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule }   from '@angular/forms';
+import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
 import { HttpModule, JsonpModule } from '@angular/http';
 // Imports for loading & configuring the in-memory web api
 //import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
@@ -13,6 +13,8 @@ import { HeroapiService } from './heroapi.service';
 import { DashboardComponent } from './dashboard.component';
 import { HeroSearchComponent } from './hero-search.component';
 import { AppRoutingModule } from './app-routing.module'
+import { LoginPageComponent } from './login-page.component';
+
 import './rxjs-extensions';
 
 @NgModule({
@@ -22,14 +24,16 @@ import './rxjs-extensions';
     HttpModule,
      //InMemoryWebApiModule.forRoot(InMemoryDataService),
     AppRoutingModule,
-    JsonpModule
+    JsonpModule,
+    ReactiveFormsModule
   ],
   declarations: [ 
     AppComponent,
     DashboardComponent, 
     HeroesComponent, 
     HeroDetailComponent,
-    HeroSearchComponent 
+    HeroSearchComponent,
+    LoginPageComponent 
     ],
   bootstrap:    [ AppComponent ],
   providers: [ HeroService, HeroapiService ]

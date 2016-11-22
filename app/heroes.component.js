@@ -10,6 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
+var hero_1 = require('./hero');
 var hero_service_1 = require('./hero.service');
 var heroapi_service_1 = require('./heroapi.service');
 var HeroesComponent = (function () {
@@ -17,6 +18,7 @@ var HeroesComponent = (function () {
         this.heroService = heroService;
         this.heroapiService = heroapiService;
         this.router = router;
+        this.hero = new hero_1.Hero(0, '');
     }
     HeroesComponent.prototype.onSelect = function (hero) {
         this.selectedHero = hero;
@@ -83,6 +85,15 @@ var HeroesComponent = (function () {
     };
     HeroesComponent.prototype.search = function (term) {
         this.heroapiService.search(term).subscribe(function (res) { return console.log(res); }, function (err) { return console.log(err); });
+    };
+    HeroesComponent.prototype.isValidName = function (value) {
+        var valid = false;
+        if (value) {
+            if (value.trim() !== '') {
+                valid = true;
+            }
+        }
+        return valid;
     };
     HeroesComponent = __decorate([
         core_1.Component({

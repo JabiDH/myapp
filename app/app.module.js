@@ -23,6 +23,7 @@ var heroapi_service_1 = require('./heroapi.service');
 var dashboard_component_1 = require('./dashboard.component');
 var hero_search_component_1 = require('./hero-search.component');
 var app_routing_module_1 = require('./app-routing.module');
+var login_page_component_1 = require('./login-page.component');
 require('./rxjs-extensions');
 var AppModule = (function () {
     function AppModule() {
@@ -35,14 +36,16 @@ var AppModule = (function () {
                 http_1.HttpModule,
                 //InMemoryWebApiModule.forRoot(InMemoryDataService),
                 app_routing_module_1.AppRoutingModule,
-                http_1.JsonpModule
+                http_1.JsonpModule,
+                forms_1.ReactiveFormsModule
             ],
             declarations: [
                 app_component_1.AppComponent,
                 dashboard_component_1.DashboardComponent,
                 heroes_component_1.HeroesComponent,
                 hero_detail_component_1.HeroDetailComponent,
-                hero_search_component_1.HeroSearchComponent
+                hero_search_component_1.HeroSearchComponent,
+                login_page_component_1.LoginPageComponent
             ],
             bootstrap: [app_component_1.AppComponent],
             providers: [hero_service_1.HeroService, heroapi_service_1.HeroapiService]

@@ -1,18 +1,29 @@
 <h2>My Heroes</h2>
-<label>Hero name:</label> <input type="text" #heroName />
-<button (click)="add(heroName.value); heroName.value=''">Add</button>
-    <ul class="heroes">
-        <li *ngFor="let hero of heroes" 
-        [class.selected]="hero === selectedHero"
-        (click)="onSelect(hero)">
+<label for="name">Name</label>
+<input type="text" id="name" class="form-control" required minlength="4" maxlength="24" name="name" [(ngModel)]="hero.Name"
+    #name="ngModel">
+<button (click)="add(hero.Name);">Add</button>
+<div *ngIf="name.errors && (name.dirty || name.touched)" class="alert alert-danger">
+    <div [hidden]="!name.errors.required">
+        Name is required
+    </div>
+    <div [hidden]="!name.errors.minlength">
+        Name must be at least 4 characters long.
+    </div>
+    <div [hidden]="!name.errors.maxlength">
+        Name cannot be more than 24 characters long.
+    </div>
+</div>
+<ul class="heroes">
+    <li *ngFor="let hero of heroes" [class.selected]="hero === selectedHero" (click)="onSelect(hero)">
         <span class="badge">{{hero.Id}}</span> {{hero.Name}}
         <button class="delete" (click)="delete(hero);
         $event.stopPropagation();">X</button>
-        </li>        
-    </ul>
-    <div *ngIf="selectedHero">
-        <h2>
-            {{selectedHero.Name | uppercase}} is my hero
-        </h2>
-        <button (click)="gotoDetail()">View Details</button>
-    </div>
+    </li>
+</ul>
+<div *ngIf="selectedHero">
+    <h2>
+        {{selectedHero.Name | uppercase}} is my hero
+    </h2>
+    <button (click)="gotoDetail()">View Details</button>
+</div>
