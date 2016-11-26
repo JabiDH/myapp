@@ -12,6 +12,7 @@ var core_1 = require('@angular/core');
 var http_1 = require('@angular/http');
 var hero_1 = require('./hero');
 var Rx_1 = require('rxjs/Rx');
+var user_account_1 = require('./user-account');
 // Import RxJs required methods
 require('rxjs/add/operator/map');
 require('rxjs/add/operator/catch');
@@ -20,6 +21,8 @@ var HeroapiService = (function () {
         this.http = http;
         this.jsonp = jsonp;
         this.heroapiUrl = '';
+        this.apiUrl = '';
+        this.apiUrl = "http://localhost:62412";
         this.heroapiUrl = "http://localhost:62412/api/heroes";
         //this.headers = new Headers();
         //this.headers.append('Content-Type', 'application/json');
@@ -112,6 +115,21 @@ var HeroapiService = (function () {
                 heroes.push(new hero_1.Hero(0, value));
             });
             return heroes;
+        });
+    };
+    HeroapiService.prototype.login = function (email, password) {
+        var url = this.apiUrl + "/api/useraccounts";
+        var headers = new http_1.Headers({
+            contentType: 'application/json',
+            dataType: 'jsonp'
+        });
+        var options = new http_1.RequestOptions({ headers: headers, method: 'POST' });
+        var useraccount = new user_account_1.UserAccount(email, password);
+        return this.http
+            .post(this.heroapiUrl, useraccount, options)
+            .map(function (r) { return r.json(); })
+            .catch(function (err) {
+            return Rx_1.Observable.throw(err.json().error || 'Server Error');
         });
     };
     HeroapiService = __decorate([

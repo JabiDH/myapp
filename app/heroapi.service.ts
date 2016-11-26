@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Http, Response, Headers, RequestOptions, Jsonp, URLSearchParams } from '@angular/http';
 import { Hero } from './hero';
 import { Observable } from 'rxjs/Rx';
-
+import { UserAccount } from './user-account';
 // Import RxJs required methods
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
@@ -10,8 +10,10 @@ import 'rxjs/add/operator/catch';
 @Injectable()
 export class HeroapiService {
     private heroapiUrl = '';
+    private apiUrl = '';
 
     constructor(private http: Http, private jsonp: Jsonp) {
+        this.apiUrl = "http://localhost:62412"; 
         this.heroapiUrl = "http://localhost:62412/api/heroes";
         //this.headers = new Headers();
         //this.headers.append('Content-Type', 'application/json');
@@ -112,6 +114,22 @@ export class HeroapiService {
                     heroes.push(new Hero(0, value));
                 });
                 return heroes;
+            });
+    }
+
+    login(email: string, password: string): Observable<UserAccount>{
+        let url = `${this.apiUrl}/api/useraccounts`;
+         let headers = new Headers({
+            contentType: 'application/json',
+            dataType: 'jsonp'
+        });
+        let options = new RequestOptions({ headers: headers, method: 'POST' });
+        let useraccount = new UserAccount(email, password);
+        return this.http
+            .post(this.heroapiUrl, useraccount, options)
+            .map(r => r.json() as UserAccount)
+            .catch((err: any) => {
+                return Observable.throw(err.json().error || 'Server Error')
             });
     }
 
