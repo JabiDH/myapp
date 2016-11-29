@@ -10,11 +10,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var forms_1 = require('@angular/forms');
+var router_1 = require('@angular/router');
 var heroapi_service_1 = require('./heroapi.service');
 var LoginPageComponent = (function () {
-    function LoginPageComponent(fb, apiservice) {
+    function LoginPageComponent(fb, apiservice, router) {
         this.fb = fb;
         this.apiservice = apiservice;
+        this.router = router;
+        this.email = 'gabih@sedata.com';
         this.loginForm = this.fb.group({
             email: ['', forms_1.Validators.required],
             password: ['', forms_1.Validators.required]
@@ -25,18 +28,20 @@ var LoginPageComponent = (function () {
         console.log(this.loginForm.value);
         var userdata = this.loginForm.value;
         this.apiservice.login(userdata.email, userdata.password)
-            .subscribe(function (ua) {
-            console.log(ua);
+            .subscribe(function (userAccount) {
+            console.log("Login: ");
+            console.log(userAccount);
         }, function (err) {
             console.log(err);
         });
     };
     LoginPageComponent = __decorate([
         core_1.Component({
+            moduleId: module.id,
             selector: 'login-page',
-            templateUrl: 'app/login-page.html'
+            templateUrl: 'login-page.html'
         }), 
-        __metadata('design:paramtypes', [forms_1.FormBuilder, heroapi_service_1.HeroapiService])
+        __metadata('design:paramtypes', [forms_1.FormBuilder, heroapi_service_1.HeroapiService, router_1.Router])
     ], LoginPageComponent);
     return LoginPageComponent;
 }());

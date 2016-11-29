@@ -126,7 +126,7 @@ var HeroapiService = (function () {
         var options = new http_1.RequestOptions({ headers: headers, method: 'POST' });
         var useraccount = new user_account_1.UserAccount(email, password);
         return this.http
-            .post(this.heroapiUrl, useraccount, options)
+            .post(url, useraccount, options)
             .map(function (r) { return r.json(); })
             .catch(function (err) {
             return Rx_1.Observable.throw(err.json().error || 'Server Error');

@@ -16,13 +16,13 @@ namespace webapiangular2.Controllers
     {
         private MyAppContext db = new MyAppContext();
 
-        // GET api/UserAccounts
+        // GET api/Users
         public IQueryable<UserAccount> GetUserAccounts()
         {
             return db.UserAccounts;
         }
 
-        // GET api/UserAccounts/5
+        // GET api/Users/5
         [ResponseType(typeof(UserAccount))]
         public IHttpActionResult GetUserAccount(int id)
         {
@@ -35,7 +35,7 @@ namespace webapiangular2.Controllers
             return Ok(useraccount);
         }
 
-        // PUT api/UserAccounts/5
+        // PUT api/Users/5
         public IHttpActionResult PutUserAccount(int id, UserAccount useraccount)
         {
             if (!ModelState.IsValid)
@@ -69,7 +69,7 @@ namespace webapiangular2.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST api/UserAccounts
+        // POST api/Users
         [ResponseType(typeof(UserAccount))]
         public IHttpActionResult PostUserAccount(UserAccount useraccount)
         {
@@ -78,16 +78,22 @@ namespace webapiangular2.Controllers
                 return BadRequest(ModelState);
             }
 
-            var userAccount = db.UserAccounts.SingleOrDefault(user => user.Email == useraccount.Email);
-            if (userAccount.Password != useraccount.Password)
+            var user = db.UserAccounts.SingleOrDefault(ua => ua.Email == useraccount.Email);
+            if (user != null)
             {
-                return BadRequest();
+                if (user.Password == useraccount.Password)
+                {
+                    return Ok(useraccount);
+                }
+                else {
+                    return Json<string>("Wrong Password!");
+                }                
             }
-            //return CreatedAtRoute("DefaultApi", new { id = useraccount.Id }, useraccount);
-            return Ok(userAccount);
+
+            return Json<string>("Email address not found!");
         }
 
-        // DELETE api/UserAccounts/5
+        // DELETE api/Users/5
         [ResponseType(typeof(UserAccount))]
         public IHttpActionResult DeleteUserAccount(int id)
         {

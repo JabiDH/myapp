@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web.Http;
 using webapiangular2.Models;
 
@@ -31,9 +32,9 @@ namespace webapiangular2.Controllers
             }
         }
 
-        public IEnumerable<Hero> Get()
+        public async Task<IHttpActionResult> Get()
         {
-            return Repo;            
+            return Ok(Repo.ToList());
         }
 
         // GET api/<controller>/5

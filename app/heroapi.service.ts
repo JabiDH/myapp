@@ -126,7 +126,7 @@ export class HeroapiService {
         let options = new RequestOptions({ headers: headers, method: 'POST' });
         let useraccount = new UserAccount(email, password);
         return this.http
-            .post(this.heroapiUrl, useraccount, options)
+            .post(url, useraccount, options)
             .map(r => r.json() as UserAccount)
             .catch((err: any) => {
                 return Observable.throw(err.json().error || 'Server Error')
