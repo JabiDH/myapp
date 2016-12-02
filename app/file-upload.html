@@ -1,0 +1,10 @@
+<br/>
+<br/>
+<div highlight>
+  <h3>File Upload Form</h3>
+</div>
+<div>
+    <input type="file" ng2FileSelect [uploader]="uploader" />
+    <button (click)="uploader.uploadAll()" [disabled]="!uploader.getNotUploadedItems().length">Upload File</button>    
+</div>
+  

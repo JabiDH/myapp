@@ -14,12 +14,14 @@ var dashboard_component_1 = require('./dashboard.component');
 var heroes_component_1 = require('./heroes.component');
 var hero_detail_component_1 = require('./hero-detail.component');
 var login_page_component_1 = require('./login-page.component');
+var fileapi_component_1 = require('./fileapi.component');
 var routes = [
     { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
     { path: 'dashboard', component: dashboard_component_1.DashboardComponent },
     { path: 'detail/:id', component: hero_detail_component_1.HeroDetailComponent },
     { path: 'heroes', component: heroes_component_1.HeroesComponent },
-    { path: 'login', component: login_page_component_1.LoginPageComponent }
+    { path: 'login', component: login_page_component_1.LoginPageComponent },
+    { path: 'uploadfile', component: fileapi_component_1.FileApiComponent }
 ];
 var AppRoutingModule = (function () {
     function AppRoutingModule() {

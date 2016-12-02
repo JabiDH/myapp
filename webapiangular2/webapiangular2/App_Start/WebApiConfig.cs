@@ -12,6 +12,7 @@ namespace webapiangular2
         {
             // Web API configuration and services
             var cors = new EnableCorsAttribute("http://localhost:3000", "*", "*");
+            cors.SupportsCredentials = true;
             config.EnableCors(cors);
             // Web API routes
             config.MapHttpAttributeRoutes();

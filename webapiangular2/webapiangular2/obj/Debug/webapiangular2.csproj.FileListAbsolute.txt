@@ -81,7 +81,6 @@ C:\github\myapp\webapiangular2\webapiangular2\bin\Newtonsoft.Json.xml
 C:\github\myapp\webapiangular2\webapiangular2\bin\System.Net.Http.Formatting.xml
 C:\github\myapp\webapiangular2\webapiangular2\bin\System.Web.Http.xml
 C:\github\myapp\webapiangular2\webapiangular2\bin\System.Web.Http.WebHost.xml
-C:\github\myapp\webapiangular2\webapiangular2\obj\Debug\webapiangular2.csprojResolveAssemblyReference.cache
 C:\github\myapp\webapiangular2\webapiangular2\obj\Debug\webapiangular2.dll
 C:\github\myapp\webapiangular2\webapiangular2\obj\Debug\webapiangular2.pdb
 C:\github\myapp\webapiangular2\webapiangular2\bin\System.Web.Cors.dll

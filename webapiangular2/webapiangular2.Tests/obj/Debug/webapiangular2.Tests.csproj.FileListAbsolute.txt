@@ -62,3 +62,5 @@ C:\github\myapp\webapiangular2\webapiangular2.Tests\bin\Debug\System.Web.Http.We
 C:\github\myapp\webapiangular2\webapiangular2.Tests\obj\Debug\webapiangular2.Tests.csprojResolveAssemblyReference.cache
 C:\github\myapp\webapiangular2\webapiangular2.Tests\obj\Debug\webapiangular2.Tests.dll
 C:\github\myapp\webapiangular2\webapiangular2.Tests\obj\Debug\webapiangular2.Tests.pdb
+C:\github\myapp\webapiangular2\webapiangular2.Tests\bin\Debug\EntityFramework.dll
+C:\github\myapp\webapiangular2\webapiangular2.Tests\bin\Debug\EntityFramework.xml

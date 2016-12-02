@@ -24,6 +24,10 @@ var dashboard_component_1 = require('./dashboard.component');
 var hero_search_component_1 = require('./hero-search.component');
 var app_routing_module_1 = require('./app-routing.module');
 var login_page_component_1 = require('./login-page.component');
+var highlight_directive_1 = require('./highlight.directive');
+var uppercase_pipe_1 = require('./uppercase.pipe');
+var fileapi_component_1 = require('./fileapi.component');
+var file_select_directive_1 = require('./ng2-file-upload/file-upload/file-select.directive');
 require('./rxjs-extensions');
 var AppModule = (function () {
     function AppModule() {
@@ -45,7 +49,11 @@ var AppModule = (function () {
                 heroes_component_1.HeroesComponent,
                 hero_detail_component_1.HeroDetailComponent,
                 hero_search_component_1.HeroSearchComponent,
-                login_page_component_1.LoginPageComponent
+                login_page_component_1.LoginPageComponent,
+                highlight_directive_1.HighlightDirective,
+                uppercase_pipe_1.UpperCasePipe,
+                fileapi_component_1.FileApiComponent,
+                file_select_directive_1.FileSelectDirective
             ],
             bootstrap: [app_component_1.AppComponent],
             providers: [hero_service_1.HeroService, heroapi_service_1.HeroapiService]

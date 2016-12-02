@@ -1,5 +1,8 @@
 <br/>
 <br/>
+<div highlight>
+  <h3>Login Form</h3>
+</div>
 <form [formGroup]="loginForm" (ngSubmit)="doLogin($event)">
     <input formControlName="email" required type="email" placeholder="Your email" [(ngModel)]="email" >
     <input formControlName="password" required type="password" placeholder="Your password" >
