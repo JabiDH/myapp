@@ -42,7 +42,7 @@ var HeroSearchComponent = (function () {
         var _this = this;
         this.heroapiService.createHero(hero.Name).subscribe(function (h) {
             hero = h;
-            var link = ['/detail', hero.Id];
+            var link = ['/profile', hero.Id];
             _this.router.navigate(link);
         }, function (err) {
             console.log(err);

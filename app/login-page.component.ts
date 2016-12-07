@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, Validators, FormGroup, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { HeroapiService } from './heroapi.service';
+import { Auth } from './auth.service';
 
 @Component({
   moduleId: module.id,
@@ -12,7 +13,7 @@ import { HeroapiService } from './heroapi.service';
 
 export class LoginPageComponent {
   email='gabih@sedata.com';
-  constructor(public fb: FormBuilder, private apiservice: HeroapiService, private router: Router) { }
+  constructor(public fb: FormBuilder, private apiservice: HeroapiService, private router: Router, private auth: Auth) { }
 
   public loginForm = this.fb.group({
     email: ['', Validators.required],

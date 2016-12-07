@@ -2,6 +2,7 @@ import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
 import { HttpModule, JsonpModule } from '@angular/http';
+import { AUTH_PROVIDERS }      from 'angular2-jwt';
 // Imports for loading & configuring the in-memory web api
 //import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 //import { InMemoryDataService }  from './in-memory-data.service';
@@ -18,6 +19,9 @@ import { HighlightDirective } from './highlight.directive';
 import { UpperCasePipe } from './uppercase.pipe';
 import { FileApiComponent } from './fileapi.component';
 import { FileSelectDirective } from './ng2-file-upload/file-upload/file-select.directive';
+import { Auth } from './auth.service';
+import { HomeComponent } from './home.component';
+
 import './rxjs-extensions';
 
 @NgModule({
@@ -40,10 +44,11 @@ import './rxjs-extensions';
     HighlightDirective,
     UpperCasePipe,
     FileApiComponent,
-    FileSelectDirective
+    FileSelectDirective,
+    HomeComponent
     ],
   bootstrap:    [ AppComponent ],
-  providers: [ HeroService, HeroapiService ]
+  providers: [ HeroService, HeroapiService, AUTH_PROVIDERS, Auth ]
 })
 
 export class AppModule { }

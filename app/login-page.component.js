@@ -12,11 +12,13 @@ var core_1 = require('@angular/core');
 var forms_1 = require('@angular/forms');
 var router_1 = require('@angular/router');
 var heroapi_service_1 = require('./heroapi.service');
+var auth_service_1 = require('./auth.service');
 var LoginPageComponent = (function () {
-    function LoginPageComponent(fb, apiservice, router) {
+    function LoginPageComponent(fb, apiservice, router, auth) {
         this.fb = fb;
         this.apiservice = apiservice;
         this.router = router;
+        this.auth = auth;
         this.email = 'gabih@sedata.com';
         this.loginForm = this.fb.group({
             email: ['', forms_1.Validators.required],
@@ -41,7 +43,7 @@ var LoginPageComponent = (function () {
             selector: 'login-page',
             templateUrl: 'login-page.html'
         }), 
-        __metadata('design:paramtypes', [forms_1.FormBuilder, heroapi_service_1.HeroapiService, router_1.Router])
+        __metadata('design:paramtypes', [forms_1.FormBuilder, heroapi_service_1.HeroapiService, router_1.Router, auth_service_1.Auth])
     ], LoginPageComponent);
     return LoginPageComponent;
 }());

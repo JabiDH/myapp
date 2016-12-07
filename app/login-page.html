@@ -1,11 +1,15 @@
 <br/>
 <br/>
+<div *ngIf="!auth.authenticated()">
+  <p>Your are not logged in, please click here to <button (click)="auth.login()">Login</button></p>
+</div>
+<!--
 <div highlight>
   <h3>Login Form</h3>
 </div>
 <form [formGroup]="loginForm" (ngSubmit)="doLogin($event)">
-    <input formControlName="email" required type="email" placeholder="Your email" [(ngModel)]="email" >
-    <input formControlName="password" required type="password" placeholder="Your password" >
-    <p>{{email}}</p>
+  <input formControlName="email" required type="email" placeholder="Your email" [(ngModel)]="email">
+  <input formControlName="password" required type="password" placeholder="Your password">
+  <p>{{email}}</p>
   <button type="submit">Log in</button>
-</form>
+</form> -->

@@ -12,6 +12,7 @@ var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
 var forms_1 = require('@angular/forms');
 var http_1 = require('@angular/http');
+var angular2_jwt_1 = require('angular2-jwt');
 // Imports for loading & configuring the in-memory web api
 //import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 //import { InMemoryDataService }  from './in-memory-data.service';
@@ -28,6 +29,8 @@ var highlight_directive_1 = require('./highlight.directive');
 var uppercase_pipe_1 = require('./uppercase.pipe');
 var fileapi_component_1 = require('./fileapi.component');
 var file_select_directive_1 = require('./ng2-file-upload/file-upload/file-select.directive');
+var auth_service_1 = require('./auth.service');
+var home_component_1 = require('./home.component');
 require('./rxjs-extensions');
 var AppModule = (function () {
     function AppModule() {
@@ -53,10 +56,11 @@ var AppModule = (function () {
                 highlight_directive_1.HighlightDirective,
                 uppercase_pipe_1.UpperCasePipe,
                 fileapi_component_1.FileApiComponent,
-                file_select_directive_1.FileSelectDirective
+                file_select_directive_1.FileSelectDirective,
+                home_component_1.HomeComponent
             ],
             bootstrap: [app_component_1.AppComponent],
-            providers: [hero_service_1.HeroService, heroapi_service_1.HeroapiService]
+            providers: [hero_service_1.HeroService, heroapi_service_1.HeroapiService, angular2_jwt_1.AUTH_PROVIDERS, auth_service_1.Auth]
         }), 
         __metadata('design:paramtypes', [])
     ], AppModule);

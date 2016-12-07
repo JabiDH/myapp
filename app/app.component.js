@@ -9,18 +9,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var auth_service_1 = require('./auth.service');
 var AppComponent = (function () {
-    function AppComponent() {
+    function AppComponent(auth) {
+        this.auth = auth;
         this.title = 'Tour of Heroes';
     }
     AppComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
             selector: 'my-app',
-            template: "\n        <h1>{{title}}</h1>\n        <nav>\n            <a routerLink=\"/login\" routerLinkActive=\"active\">Login</a>\n            <a routerLink=\"/dashboard\" routerLinkActive=\"active\">Dashboard</a>\n            <a routerLink=\"/heroes\" routerLinkActive=\"active\">Heroes</a>\n            <a routerLink=\"/uploadfile\" routerLinkActive=\"active\">File Upload</a>\n        </nav>\n        <router-outlet></router-outlet>      \n        ",
+            template: "\n        <h1>{{title}}</h1>\n        <nav>\n            <!--<button (click)=\"auth.login()\" *ngIf=\"!auth.authenticated()\">Login</button>-->\n            <a routerLink=\"/home\" routerLinkActive=\"active\">Home</a>            \n            <a routerLink=\"/login\" routerLinkActive=\"active\" *ngIf=\"!auth.authenticated()\">Login</a>\n            <a routerLink=\"/dashboard\" routerLinkActive=\"active\" *ngIf=\"auth.authenticated()\">Dashboard</a>\n            <a routerLink=\"/heroes\" routerLinkActive=\"active\" *ngIf=\"auth.authenticated()\">Heroes</a>\n            <a routerLink=\"/uploadfile\" routerLinkActive=\"active\" *ngIf=\"auth.authenticated()\">File Upload</a>\n            <a href=\"#\" (click)=\"auth.logout()\" *ngIf=\"auth.authenticated()\">Logout</a>\n        </nav>\n        <router-outlet></router-outlet>      \n        ",
             styleUrls: ['app.component.css']
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [auth_service_1.Auth])
     ], AppComponent);
     return AppComponent;
 }());

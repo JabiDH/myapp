@@ -42,7 +42,7 @@ export class HeroSearchComponent implements OnInit {
     this.heroapiService.createHero(hero.Name).subscribe(
       h => {
         hero = h;
-        let link = ['/detail', hero.Id];
+        let link = ['/profile', hero.Id];
         this.router.navigate(link);
       },
       err => {

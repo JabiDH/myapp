@@ -1,0 +1,13 @@
+<br/>
+<br/>
+<div *ngIf="profile">
+    <div class="col-md-2">
+        <img class="img-circle" src="{{profile.picture}}" style="width:100"/>
+    </div>
+    <div class="col-md-10">
+        <h1>{{profile.name}}'s Profile</h1>
+        <p>Email: {{profile.email}}</p>
+        <p>Last Update: {{profile.created_at}}</p>
+    </div>
+      
+</div>

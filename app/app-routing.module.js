@@ -15,13 +15,16 @@ var heroes_component_1 = require('./heroes.component');
 var hero_detail_component_1 = require('./hero-detail.component');
 var login_page_component_1 = require('./login-page.component');
 var fileapi_component_1 = require('./fileapi.component');
+var home_component_1 = require('./home.component');
+var auth_guard_1 = require('./auth.guard');
 var routes = [
-    { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
-    { path: 'dashboard', component: dashboard_component_1.DashboardComponent },
-    { path: 'detail/:id', component: hero_detail_component_1.HeroDetailComponent },
-    { path: 'heroes', component: heroes_component_1.HeroesComponent },
+    { path: '', redirectTo: '/home', pathMatch: 'full' },
     { path: 'login', component: login_page_component_1.LoginPageComponent },
-    { path: 'uploadfile', component: fileapi_component_1.FileApiComponent }
+    { path: 'home', component: home_component_1.HomeComponent },
+    { path: 'dashboard', component: dashboard_component_1.DashboardComponent, canActivate: [auth_guard_1.AuthGuard] },
+    { path: 'detail/:id', component: hero_detail_component_1.HeroDetailComponent, canActivate: [auth_guard_1.AuthGuard] },
+    { path: 'heroes', component: heroes_component_1.HeroesComponent, canActivate: [auth_guard_1.AuthGuard] },
+    { path: 'uploadfile', component: fileapi_component_1.FileApiComponent, canActivate: [auth_guard_1.AuthGuard] }
 ];
 var AppRoutingModule = (function () {
     function AppRoutingModule() {
