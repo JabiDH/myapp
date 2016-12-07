@@ -30,6 +30,7 @@ var uppercase_pipe_1 = require('./uppercase.pipe');
 var fileapi_component_1 = require('./fileapi.component');
 var file_select_directive_1 = require('./ng2-file-upload/file-upload/file-select.directive');
 var auth_service_1 = require('./auth.service');
+var auth_guard_1 = require('./auth.guard');
 var home_component_1 = require('./home.component');
 require('./rxjs-extensions');
 var AppModule = (function () {
@@ -60,7 +61,7 @@ var AppModule = (function () {
                 home_component_1.HomeComponent
             ],
             bootstrap: [app_component_1.AppComponent],
-            providers: [hero_service_1.HeroService, heroapi_service_1.HeroapiService, angular2_jwt_1.AUTH_PROVIDERS, auth_service_1.Auth]
+            providers: [hero_service_1.HeroService, heroapi_service_1.HeroapiService, angular2_jwt_1.AUTH_PROVIDERS, auth_service_1.Auth, auth_guard_1.AuthGuard]
         }), 
         __metadata('design:paramtypes', [])
     ], AppModule);

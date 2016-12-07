@@ -1,4 +1,17 @@
-<h3 highlight>Top Heroes</h3>
+<br/>
+<div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">Top Heroes</h3>
+    </div>
+    <div *ngFor="let hero of heroes" (click)="gotoDetail(hero)" class="col-1-4 panel-body">
+      <div class="module hero">
+        <h4>{{hero.Name}}</h4>
+      </div>
+    </div>
+  </div>
+</div>
+<!--
 <div class="grid grid-pad">
   <div *ngFor="let hero of heroes" (click)="gotoDetail(hero)" class="col-1-4">
     <div class="module hero">
@@ -6,4 +19,5 @@
     </div>
   </div>
 </div>
+-->
 <hero-search></hero-search>

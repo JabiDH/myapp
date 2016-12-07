@@ -1,7 +1,7 @@
 <br/>
 <br/>
 <div *ngIf="!auth.authenticated()">
-  <p>Your are not logged in, please click here to <button (click)="auth.login()">Login</button></p>
+  <span class="alert alert-danger"> Your are not logged in, please click here to <button (click)="auth.login()" class="btn btn-default">Login</button></span>
 </div>
 <!--
 <div highlight>

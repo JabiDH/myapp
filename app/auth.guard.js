@@ -20,8 +20,10 @@ var AuthGuard = (function () {
         if (this.auth.authenticated()) {
             return true;
         }
-        //this.router.navigate(['/login']);
-        return false;
+        else {
+            this.router.navigate(['/login']);
+            return false;
+        }
     };
     AuthGuard = __decorate([
         core_1.Injectable(), 

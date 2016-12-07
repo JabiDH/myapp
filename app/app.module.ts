@@ -20,6 +20,7 @@ import { UpperCasePipe } from './uppercase.pipe';
 import { FileApiComponent } from './fileapi.component';
 import { FileSelectDirective } from './ng2-file-upload/file-upload/file-select.directive';
 import { Auth } from './auth.service';
+import { AuthGuard } from './auth.guard'
 import { HomeComponent } from './home.component';
 
 import './rxjs-extensions';
@@ -48,7 +49,7 @@ import './rxjs-extensions';
     HomeComponent
     ],
   bootstrap:    [ AppComponent ],
-  providers: [ HeroService, HeroapiService, AUTH_PROVIDERS, Auth ]
+  providers: [ HeroService, HeroapiService, AUTH_PROVIDERS, Auth, AuthGuard ]
 })
 
 export class AppModule { }
