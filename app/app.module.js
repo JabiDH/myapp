@@ -32,6 +32,7 @@ var file_select_directive_1 = require('./ng2-file-upload/file-upload/file-select
 var auth_service_1 = require('./auth.service');
 var auth_guard_1 = require('./auth.guard');
 var home_component_1 = require('./home.component');
+var shop_module_1 = require('./shop/modules/shop.module');
 require('./rxjs-extensions');
 var AppModule = (function () {
     function AppModule() {
@@ -45,7 +46,8 @@ var AppModule = (function () {
                 //InMemoryWebApiModule.forRoot(InMemoryDataService),
                 app_routing_module_1.AppRoutingModule,
                 http_1.JsonpModule,
-                forms_1.ReactiveFormsModule
+                forms_1.ReactiveFormsModule,
+                shop_module_1.ShopModule
             ],
             declarations: [
                 app_component_1.AppComponent,

@@ -13,6 +13,7 @@ import { Auth } from './auth.service';
             <a routerLink="/dashboard" routerLinkActive="active" *ngIf="auth.authenticated()">Dashboard</a>
             <a routerLink="/heroes" routerLinkActive="active" *ngIf="auth.authenticated()">Heroes</a>
             <a routerLink="/uploadfile" routerLinkActive="active" *ngIf="auth.authenticated()">File Upload</a>
+            <a routerLink="/shop" routerLinkActive="active" *ngIf="auth.authenticated()">Shop</a>
             <a href="#" (click)="auth.logout()" *ngIf="auth.authenticated()">Logout</a>
         </nav>
         <router-outlet></router-outlet>      

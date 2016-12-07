@@ -22,6 +22,7 @@ import { FileSelectDirective } from './ng2-file-upload/file-upload/file-select.d
 import { Auth } from './auth.service';
 import { AuthGuard } from './auth.guard'
 import { HomeComponent } from './home.component';
+import { ShopModule } from './shop/modules/shop.module';
 
 import './rxjs-extensions';
 
@@ -33,7 +34,8 @@ import './rxjs-extensions';
      //InMemoryWebApiModule.forRoot(InMemoryDataService),
     AppRoutingModule,
     JsonpModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ShopModule
   ],
   declarations: [ 
     AppComponent,

@@ -125,3 +125,4 @@ C:\github\myapp\webapiangular2\webapiangular2\bin\ko\System.Spatial.resources.dl
 C:\github\myapp\webapiangular2\webapiangular2\bin\ru\System.Spatial.resources.dll
 C:\github\myapp\webapiangular2\webapiangular2\bin\zh-Hans\System.Spatial.resources.dll
 C:\github\myapp\webapiangular2\webapiangular2\bin\zh-Hant\System.Spatial.resources.dll
+C:\github\myapp\webapiangular2\webapiangular2\obj\Debug\webapiangular2.csprojResolveAssemblyReference.cache

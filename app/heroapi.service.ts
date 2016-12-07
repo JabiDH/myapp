@@ -33,7 +33,7 @@ export class HeroapiService {
             .map(response => response.json() as Hero[])
             .catch((err: any) => {
                 console.log(err);
-                return Observable.throw(err.json().error || 'Server Error')
+                return Observable.throw(err.json().error || 'Server Error');
             });
     }
 

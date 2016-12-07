@@ -6,8 +6,10 @@ import { HeroesComponent } from './heroes.component';
 import { HeroDetailComponent } from './hero-detail.component';
 import { LoginPageComponent } from './login-page.component';
 import { FileApiComponent } from './fileapi.component';
-import { HomeComponent } from './home.component'
-import { AuthGuard } from './auth.guard'
+import { HomeComponent } from './home.component';
+import { AuthGuard } from './auth.guard';
+import { ShopComponent } from './shop/components/shop.component';
+
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'login', component: LoginPageComponent},
@@ -15,7 +17,8 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
   { path: 'detail/:id', component: HeroDetailComponent, canActivate: [AuthGuard] },
   { path: 'heroes', component: HeroesComponent, canActivate: [AuthGuard] },
-  { path: 'uploadfile', component: FileApiComponent, canActivate: [AuthGuard] }
+  { path: 'uploadfile', component: FileApiComponent, canActivate: [AuthGuard] },
+  { path: 'shop', component: ShopComponent, canActivate: [AuthGuard]}
 ];
 
 @NgModule({
