@@ -1,5 +1,8 @@
-<div *ngFor="let item of items">
+<div class="row">
+<div *ngFor="let item of items" class="col-md-2">
+    <img class="img-circle" width="200" src="https://www.squaredealonline.com/W/email/september2016/new%20item.png">
     <p>Name: {{item.Name}}</p>
-    <p>Price: {{item.Price}}</p>
-    <button>Add</button>
+    <p>Price: ${{item.Price}}</p>
+    <button class="btn btn-default">Add</button>
+</div>
 </div>
