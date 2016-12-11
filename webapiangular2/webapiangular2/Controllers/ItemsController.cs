@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Web;
 using System.Web.Http;
 using webapiangular2.Models;
 
@@ -11,17 +12,21 @@ namespace webapiangular2.Controllers
     public class ItemsController : ApiController
     {
         public static List<Item> repository = new List<Item>();
-        
+        private string itemsFolder = HttpContext.Current.Server.MapPath("~/items");
+
         public ItemsController()
         {
             if (repository.Count <= 0)
             {
-                for (int i = 1; i <= 5; i++)
+                var images = System.IO.Directory.GetFiles(itemsFolder);
+                for (int i = 1; i <= images.Length; i++)
                 {
                     repository.Add(new Item()
                     {
+                        Id = i,
                         Name = "Item_"+i,
-                        Price = 19.99 + i
+                        Price = 19.99 + i,
+                        //Image = images[i-1]//string.Format("{0}\\item{1}.jpg", itemsFolder, i),
                     });
                 }
                 

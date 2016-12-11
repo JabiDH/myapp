@@ -1,0 +1,58 @@
+<br/>
+<div id="shoppingCart" *ngFor="let order of orders">
+    <table class="table table-hover" *ngIf="order.Items">
+        <caption>Your order has {{order.Items.length}} Item(s). Total of ${{order.SubTotalAfterTax}} </caption>
+        <thead>
+            <tr>
+                <th></th>
+                <th>Item Description</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Total</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of order.Items">
+                <img src="{{item.Image}}" alt="{{item.Name}}" style="width:75; height:75" class="img-circle">
+                <td>{{item.Name}}</td>
+                <td><input disabled="true" type="text" class="form-control" [(ngModel)]="item.Quantity" maxlength="2" size="2" (change)="processCart(order.Items);"></td>
+                <td>${{item.Price}}</td>
+                <td>${{item.Quantity * item.Price}}</td>
+                <td></td>
+            </tr>
+            <tr>
+                <th></th>
+                <th># of items {{order.Items.length}}</th>
+                <th></th>
+                <th>Subtotal</th>
+                <th>${{order.SubTotal}}</th>
+                <th></th>
+            </tr>
+            <tr>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th>Sale Tax</th>
+                <th>{{saletax}}</th>
+                <th></th>
+            </tr>
+            <tr>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th>Subtotal include tax</th>
+                <th>${{order.SubTotalAfterTax}}</th>
+                <th></th>
+            </tr>
+            <tr>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>                
+                <th></th>
+                <th></th>
+            </tr>
+        </tbody>
+    </table>
+</div>

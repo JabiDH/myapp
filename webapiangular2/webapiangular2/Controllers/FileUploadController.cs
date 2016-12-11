@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
@@ -19,9 +21,22 @@ namespace webapiangular2.Controllers
         }
 
         // GET api/fileupload/5
-        public string Get(int id)
+        public Task<HttpResponseMessage> Get(int id)
         {
-            return "value";
+            var response = new HttpResponseMessage();
+            try
+            {
+                var folderPath = HttpContext.Current.Server.MapPath("~/items");
+                var filePath = Directory.GetFiles(folderPath).SingleOrDefault(name => name.Equals(string.Format("{0}\\item{1}.jpg", folderPath,id)));
+                var fileStream = System.IO.File.OpenRead(filePath);
+                response.Content = new StreamContent(fileStream);
+                //response.Content.Headers.ContentType = new MediaTypeHeaderValue("image/jpeg");
+                //response.Content.Headers.ContentDisposition = new System.Net.Http.Headers.ContentDispositionHeaderValue("attachment");
+            }
+            catch { 
+                
+            }
+            return Task.FromResult(response);
         }
 
         // POST api/fileupload

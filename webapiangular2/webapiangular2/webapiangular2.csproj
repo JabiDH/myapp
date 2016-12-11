@@ -175,6 +175,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="items\" />
     <Folder Include="myapp\db\" />
     <Folder Include="upload\" />
   </ItemGroup>

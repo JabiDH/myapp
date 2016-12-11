@@ -18,6 +18,8 @@ var fileapi_component_1 = require('./fileapi.component');
 var home_component_1 = require('./home.component');
 var auth_guard_1 = require('./auth.guard');
 var shop_component_1 = require('./shop/components/shop.component');
+var shop_cart_component_1 = require('./shop/components/shop-cart.component');
+var shop_order_component_1 = require('./shop/components/shop-order.component');
 var routes = [
     { path: '', redirectTo: '/home', pathMatch: 'full' },
     { path: 'login', component: login_page_component_1.LoginPageComponent },
@@ -26,7 +28,9 @@ var routes = [
     { path: 'detail/:id', component: hero_detail_component_1.HeroDetailComponent, canActivate: [auth_guard_1.AuthGuard] },
     { path: 'heroes', component: heroes_component_1.HeroesComponent, canActivate: [auth_guard_1.AuthGuard] },
     { path: 'uploadfile', component: fileapi_component_1.FileApiComponent, canActivate: [auth_guard_1.AuthGuard] },
-    { path: 'shop', component: shop_component_1.ShopComponent, canActivate: [auth_guard_1.AuthGuard] }
+    { path: 'shop', component: shop_component_1.ShopComponent, canActivate: [auth_guard_1.AuthGuard] },
+    { path: 'shop/shoppingcart', component: shop_cart_component_1.ShoppingCartComponent, canActivate: [auth_guard_1.AuthGuard] },
+    { path: 'shop/orders', component: shop_order_component_1.ShopOrderComponent, canActivate: [auth_guard_1.AuthGuard] }
 ];
 var AppRoutingModule = (function () {
     function AppRoutingModule() {

@@ -1,7 +1,13 @@
 import { Item } from './item'
 
-export interface Order{
-    Id: number,
-    Creater: string,
-    Items: Item[]
+export class Order {
+    Id: number;
+    Creater: string;
+    Items: Item[];
+    SubTotal: number;
+    SubTotalAfterTax: number;
+    constractor() {
+
+    }
+
 }

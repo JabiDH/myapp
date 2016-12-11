@@ -37,13 +37,14 @@ namespace webapiangular2.Controllers
         }
 
         // POST api/order
-        public void Post(Order order)
+        public Order Post(Order order)
         {
             if (order == null)
             {
-                return;
+                return null;
             }
             repository.Add(order);
+            return order;
         }
 
         // PUT api/order/5

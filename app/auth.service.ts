@@ -45,5 +45,6 @@ export class Auth {
         // Remove token from localStorage
         localStorage.removeItem('id_token');
         localStorage.removeItem('profile');
+        localStorage.removeItem('shoppingCart');
     }
 }

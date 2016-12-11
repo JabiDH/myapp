@@ -1,8 +1,16 @@
-<div class="row">
-<div *ngFor="let item of items" class="col-md-2">
-    <img class="img-circle" width="200" src="https://www.squaredealonline.com/W/email/september2016/new%20item.png">
-    <p>Name: {{item.Name}}</p>
-    <p>Price: ${{item.Price}}</p>
-    <button class="btn btn-default">Add</button>
+<div id="shoppingcart" class="row">
+    <div *ngIf="shoppingCart" class="col-md-10">
+        
+        <button class="btn btn-danger" (click)="goToShoppingCart();" [disabled]="totalOfItems == 0">{{totalOfItems}} Items in your
+        <span class="glyphicon glyphicon-shopping-cart"></span></button>
+    </div>
 </div>
+<br/>
+<div class="row">
+    <div *ngFor="let item of items" class="col-md-2">
+        <img class="img-rounded" width="200" height="200" src="{{item.Image}}" />
+        <p>Name: {{item.Name}}</p>
+        <p>Price: ${{item.Price}}</p>
+        <button class="btn btn-default" (click)="addItemToShoppingCart(item)">Add</button>
+    </div>
 </div>

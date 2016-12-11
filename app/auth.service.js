@@ -47,6 +47,7 @@ var Auth = (function () {
         // Remove token from localStorage
         localStorage.removeItem('id_token');
         localStorage.removeItem('profile');
+        localStorage.removeItem('shoppingCart');
     };
     Auth = __decorate([
         core_1.Injectable(), 

@@ -10,5 +10,7 @@ namespace webapiangular2.Models
         public int Id { get; set; }
         public string Creater { get; set; }
         public List<Item> Items { get; set; }
+        public double SubTotal { get; set; }
+        public double SubTotalAfterTax { get; set; }
     }
 }

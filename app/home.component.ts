@@ -12,7 +12,7 @@ export class HomeComponent {
         //console.log(localStorage.getItem('profile'));
         this.profile = JSON.parse(localStorage.getItem('profile'));
         if (this.profile) {
-            console.log(this.profile);
+            console.log(this.profile);            
         }
     }
 
