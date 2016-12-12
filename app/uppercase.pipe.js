@@ -8,18 +8,18 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
+var core_1 = require("@angular/core");
 var UpperCasePipe = (function () {
     function UpperCasePipe() {
     }
     UpperCasePipe.prototype.transform = function (pharse) {
         return pharse ? '' + pharse.toUpperCase : '';
     };
-    UpperCasePipe = __decorate([
-        core_1.Pipe({ name: 'touppercase' }), 
-        __metadata('design:paramtypes', [])
-    ], UpperCasePipe);
     return UpperCasePipe;
 }());
+UpperCasePipe = __decorate([
+    core_1.Pipe({ name: 'touppercase' }),
+    __metadata("design:paramtypes", [])
+], UpperCasePipe);
 exports.UpperCasePipe = UpperCasePipe;
 //# sourceMappingURL=uppercase.pipe.js.map

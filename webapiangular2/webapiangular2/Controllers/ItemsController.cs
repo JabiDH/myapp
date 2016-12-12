@@ -19,13 +19,14 @@ namespace webapiangular2.Controllers
             if (repository.Count <= 0)
             {
                 var images = System.IO.Directory.GetFiles(itemsFolder);
+                var random = new Random();
                 for (int i = 1; i <= images.Length; i++)
                 {
                     repository.Add(new Item()
                     {
                         Id = i,
                         Name = "Item_"+i,
-                        Price = 19.99 + i,
+                        Price = random.Next(30),
                         //Image = images[i-1]//string.Format("{0}\\item{1}.jpg", itemsFolder, i),
                     });
                 }

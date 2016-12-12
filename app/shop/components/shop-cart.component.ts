@@ -37,6 +37,7 @@ export class ShoppingCartComponent {
             order.SubTotalAfterTax = this.preciseRound(order.SubTotal * this.saletax + order.SubTotal, 2);            
         }        
         this.order = order;
+        localStorage.setItem('shoppingCart', JSON.stringify(order.Items));
         console.log("processOrder()");
         console.log(order);
     }
@@ -69,7 +70,7 @@ export class ShoppingCartComponent {
                             alert("Your order has been placed.");
                             this.order = new Order();
                             localStorage.removeItem('shoppingCart');
-                            let link = ['/shop/orders'];
+                            let link = ['/orders'];
                             this.router.navigate(link);
                         }
                     }, err => {

@@ -8,19 +8,67 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
+var core_1 = require("@angular/core");
 var ShopComponent = (function () {
     function ShopComponent() {
+        this.totalOfItems = 0;
+        var cart = localStorage.getItem('shoppingCart');
+        if (cart) {
+            this.shoppingCart = JSON.parse(cart);
+        }
+        else {
+            this.shoppingCart = [];
+        }
+        this.totalOfItems = this.getTotalOfItems();
+        localStorage.setItem('shoppingCart', JSON.stringify(this.shoppingCart));
     }
-    ShopComponent = __decorate([
-        core_1.Component({
-            moduleId: module.id,
-            selector: 'shop',
-            templateUrl: '../templates/shop-template.html'
-        }), 
-        __metadata('design:paramtypes', [])
-    ], ShopComponent);
+    ShopComponent.prototype.getTotalOfItems = function () {
+        if (this.shoppingCart) {
+            var total_1 = 0;
+            this.shoppingCart.forEach(function (item) {
+                total_1 += item.Quantity;
+            });
+            return total_1;
+        }
+        return 0;
+    };
+    ShopComponent.prototype.addItemToShoppingCart = function (item) {
+        var cart = JSON.parse(localStorage.getItem('shoppingCart'));
+        //console.log(item);
+        if (item) {
+            var _item_1;
+            cart.forEach(function (i) {
+                if (i.Id == item.Id) {
+                    _item_1 = i;
+                }
+            });
+            if (_item_1) {
+                //console.log("item exist");
+                _item_1.Quantity += 1;
+            }
+            else {
+                //console.log("item first time added");
+                _item_1 = item;
+                _item_1.Quantity = 1;
+                cart.push(_item_1);
+            }
+            this.shoppingCart = cart;
+            this.totalOfItems = this.getTotalOfItems();
+            localStorage.removeItem('shoppingCart');
+            localStorage.setItem('shoppingCart', JSON.stringify(this.shoppingCart));
+            console.log(this.shoppingCart);
+            console.log(this.totalOfItems);
+        }
+    };
     return ShopComponent;
 }());
+ShopComponent = __decorate([
+    core_1.Component({
+        moduleId: module.id,
+        selector: 'shop',
+        templateUrl: '../templates/shop-template.html'
+    }),
+    __metadata("design:paramtypes", [])
+], ShopComponent);
 exports.ShopComponent = ShopComponent;
 //# sourceMappingURL=shop.component.js.map

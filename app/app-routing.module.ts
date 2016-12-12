@@ -22,7 +22,7 @@ const routes: Routes = [
   { path: 'uploadfile', component: FileApiComponent, canActivate: [AuthGuard] },
   { path: 'shop', component: ShopComponent, canActivate: [AuthGuard]},
   { path: 'shop/shoppingcart', component: ShoppingCartComponent, canActivate: [AuthGuard]},
-  { path: 'shop/orders', component: ShopOrderComponent, canActivate: [AuthGuard]}
+  { path: 'orders', component: ShopOrderComponent, canActivate: [AuthGuard]}
 ];
 
 @NgModule({

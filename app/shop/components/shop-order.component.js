@@ -8,8 +8,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var shop_service_1 = require('../../shop/services/shop.service');
+var core_1 = require("@angular/core");
+var shop_service_1 = require("../../shop/services/shop.service");
 var ShopOrderComponent = (function () {
     function ShopOrderComponent(shopService) {
         this.shopService = shopService;
@@ -29,15 +29,15 @@ var ShopOrderComponent = (function () {
             });
         }
     };
-    ShopOrderComponent = __decorate([
-        core_1.Component({
-            moduleId: module.id,
-            selector: 'shop-order',
-            templateUrl: '../templates/shop-order-template.html'
-        }), 
-        __metadata('design:paramtypes', [shop_service_1.ShopService])
-    ], ShopOrderComponent);
     return ShopOrderComponent;
 }());
+ShopOrderComponent = __decorate([
+    core_1.Component({
+        moduleId: module.id,
+        selector: 'shop-order',
+        templateUrl: '../templates/shop-order-template.html'
+    }),
+    __metadata("design:paramtypes", [shop_service_1.ShopService])
+], ShopOrderComponent);
 exports.ShopOrderComponent = ShopOrderComponent;
 //# sourceMappingURL=shop-order.component.js.map

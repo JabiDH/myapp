@@ -8,9 +8,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var router_1 = require('@angular/router');
-var heroapi_service_1 = require('./heroapi.service');
+var core_1 = require("@angular/core");
+var router_1 = require("@angular/router");
+var heroapi_service_1 = require("./heroapi.service");
 var DashboardComponent = (function () {
     function DashboardComponent(heroapiService, router) {
         this.heroapiService = heroapiService;
@@ -31,16 +31,17 @@ var DashboardComponent = (function () {
         var link = ['/detail', hero.Id];
         this.router.navigate(link);
     };
-    DashboardComponent = __decorate([
-        core_1.Component({
-            moduleId: module.id,
-            selector: 'my-dashboard',
-            templateUrl: 'dashboard.component.html',
-            styleUrls: ['dashboard.component.css']
-        }), 
-        __metadata('design:paramtypes', [heroapi_service_1.HeroapiService, router_1.Router])
-    ], DashboardComponent);
     return DashboardComponent;
 }());
+DashboardComponent = __decorate([
+    core_1.Component({
+        moduleId: module.id,
+        selector: 'my-dashboard',
+        templateUrl: 'dashboard.component.html',
+        styleUrls: ['dashboard.component.css']
+    }),
+    __metadata("design:paramtypes", [heroapi_service_1.HeroapiService,
+        router_1.Router])
+], DashboardComponent);
 exports.DashboardComponent = DashboardComponent;
 //# sourceMappingURL=dashboard.component.js.map

@@ -1,11 +1,3 @@
-<div id="shoppingcart" class="row">
-    <div *ngIf="shoppingCart" class="col-md-10">
-        
-        <button class="btn btn-danger" (click)="goToShoppingCart();" [disabled]="totalOfItems == 0">{{totalOfItems}} Items in your
-        <span class="glyphicon glyphicon-shopping-cart"></span></button>
-    </div>
-</div>
-<br/>
 <div class="row">
     <div *ngFor="let item of items" class="col-md-2">
         <img class="img-rounded" width="200" height="200" src="{{item.Image}}" />

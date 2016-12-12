@@ -8,12 +8,12 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var router_1 = require('@angular/router');
-var Observable_1 = require('rxjs/Observable');
-var Subject_1 = require('rxjs/Subject');
+var core_1 = require("@angular/core");
+var router_1 = require("@angular/router");
+var Observable_1 = require("rxjs/Observable");
+var Subject_1 = require("rxjs/Subject");
 //import { HeroSearchService } from './hero-search.service';
-var heroapi_service_1 = require('./heroapi.service');
+var heroapi_service_1 = require("./heroapi.service");
 var HeroSearchComponent = (function () {
     function HeroSearchComponent(heroapiService, router) {
         this.heroapiService = heroapiService;
@@ -48,17 +48,18 @@ var HeroSearchComponent = (function () {
             console.log(err);
         });
     };
-    HeroSearchComponent = __decorate([
-        core_1.Component({
-            moduleId: module.id,
-            selector: 'hero-search',
-            templateUrl: 'hero-search.component.html',
-            styleUrls: ['hero-search.component.css'],
-            providers: [heroapi_service_1.HeroapiService]
-        }), 
-        __metadata('design:paramtypes', [heroapi_service_1.HeroapiService, router_1.Router])
-    ], HeroSearchComponent);
     return HeroSearchComponent;
 }());
+HeroSearchComponent = __decorate([
+    core_1.Component({
+        moduleId: module.id,
+        selector: 'hero-search',
+        templateUrl: 'hero-search.component.html',
+        styleUrls: ['hero-search.component.css'],
+        providers: [heroapi_service_1.HeroapiService]
+    }),
+    __metadata("design:paramtypes", [heroapi_service_1.HeroapiService,
+        router_1.Router])
+], HeroSearchComponent);
 exports.HeroSearchComponent = HeroSearchComponent;
 //# sourceMappingURL=hero-search.component.js.map

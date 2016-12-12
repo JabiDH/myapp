@@ -8,10 +8,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var router_1 = require('@angular/router');
-var order_1 = require('../../shop/models/order');
-var shop_service_1 = require('../../shop/services/shop.service');
+var core_1 = require("@angular/core");
+var router_1 = require("@angular/router");
+var order_1 = require("../../shop/models/order");
+var shop_service_1 = require("../../shop/services/shop.service");
 var ShoppingCartComponent = (function () {
     function ShoppingCartComponent(router, shopService) {
         this.router = router;
@@ -39,6 +39,7 @@ var ShoppingCartComponent = (function () {
             order.SubTotalAfterTax = this.preciseRound(order.SubTotal * this.saletax + order.SubTotal, 2);
         }
         this.order = order;
+        localStorage.setItem('shoppingCart', JSON.stringify(order.Items));
         console.log("processOrder()");
         console.log(order);
     };
@@ -69,7 +70,7 @@ var ShoppingCartComponent = (function () {
                         alert("Your order has been placed.");
                         _this.order = new order_1.Order();
                         localStorage.removeItem('shoppingCart');
-                        var link = ['/shop/orders'];
+                        var link = ['/orders'];
                         _this.router.navigate(link);
                     }
                 }, function (err) {
@@ -82,15 +83,15 @@ var ShoppingCartComponent = (function () {
         var t = Math.pow(10, decimals);
         return +(Math.round((num * t) + (decimals > 0 ? 1 : 0) * (Math.sign(num) * (10 / Math.pow(100, decimals)))) / t).toFixed(decimals);
     };
-    ShoppingCartComponent = __decorate([
-        core_1.Component({
-            moduleId: module.id,
-            selector: 'shop-cart',
-            templateUrl: '../templates/shop-cart-template.html'
-        }), 
-        __metadata('design:paramtypes', [router_1.Router, shop_service_1.ShopService])
-    ], ShoppingCartComponent);
     return ShoppingCartComponent;
 }());
+ShoppingCartComponent = __decorate([
+    core_1.Component({
+        moduleId: module.id,
+        selector: 'shop-cart',
+        templateUrl: '../templates/shop-cart-template.html'
+    }),
+    __metadata("design:paramtypes", [router_1.Router, shop_service_1.ShopService])
+], ShoppingCartComponent);
 exports.ShoppingCartComponent = ShoppingCartComponent;
 //# sourceMappingURL=shop-cart.component.js.map

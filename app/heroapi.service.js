@@ -8,14 +8,14 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var http_1 = require('@angular/http');
-var hero_1 = require('./hero');
-var Rx_1 = require('rxjs/Rx');
-var user_account_1 = require('./user-account');
+var core_1 = require("@angular/core");
+var http_1 = require("@angular/http");
+var hero_1 = require("./hero");
+var Rx_1 = require("rxjs/Rx");
+var user_account_1 = require("./user-account");
 // Import RxJs required methods
-require('rxjs/add/operator/map');
-require('rxjs/add/operator/catch');
+require("rxjs/add/operator/map");
+require("rxjs/add/operator/catch");
 var HeroapiService = (function () {
     function HeroapiService(http, jsonp) {
         this.http = http;
@@ -132,11 +132,11 @@ var HeroapiService = (function () {
             return Rx_1.Observable.throw(err.json().error || 'Server Error');
         });
     };
-    HeroapiService = __decorate([
-        core_1.Injectable(), 
-        __metadata('design:paramtypes', [http_1.Http, http_1.Jsonp])
-    ], HeroapiService);
     return HeroapiService;
 }());
+HeroapiService = __decorate([
+    core_1.Injectable(),
+    __metadata("design:paramtypes", [http_1.Http, http_1.Jsonp])
+], HeroapiService);
 exports.HeroapiService = HeroapiService;
 //# sourceMappingURL=heroapi.service.js.map

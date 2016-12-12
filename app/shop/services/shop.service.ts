@@ -32,7 +32,7 @@ export class ShopService {
     }
 
     getUserOrders(creater: string): Observable<Order[]>{
-        let url = `${this.apiUrl}/api/orders?q=${creater}`;
+        let url = `${this.apiUrl}/api/orders?creater=${creater}`;
         return this.http.get(url)
             .map(res => res.json() as Order[])
             .catch((err: any) => {

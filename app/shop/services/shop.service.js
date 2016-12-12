@@ -8,12 +8,12 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var http_1 = require('@angular/http');
-var Rx_1 = require('rxjs/Rx');
+var core_1 = require("@angular/core");
+var http_1 = require("@angular/http");
+var Rx_1 = require("rxjs/Rx");
 // Import RxJs required methods
-require('rxjs/add/operator/map');
-require('rxjs/add/operator/catch');
+require("rxjs/add/operator/map");
+require("rxjs/add/operator/catch");
 var ShopService = (function () {
     function ShopService(http) {
         this.http = http;
@@ -33,7 +33,7 @@ var ShopService = (function () {
         });
     };
     ShopService.prototype.getUserOrders = function (creater) {
-        var url = this.apiUrl + "/api/orders?q=" + creater;
+        var url = this.apiUrl + "/api/orders?creater=" + creater;
         return this.http.get(url)
             .map(function (res) { return res.json(); })
             .catch(function (err) {
@@ -73,11 +73,11 @@ var ShopService = (function () {
             return Rx_1.Observable.throw(err.json().error || 'Server Error');
         });
     };
-    ShopService = __decorate([
-        core_1.Injectable(), 
-        __metadata('design:paramtypes', [http_1.Http])
-    ], ShopService);
     return ShopService;
 }());
+ShopService = __decorate([
+    core_1.Injectable(),
+    __metadata("design:paramtypes", [http_1.Http])
+], ShopService);
 exports.ShopService = ShopService;
 //# sourceMappingURL=shop.service.js.map

@@ -8,11 +8,11 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var forms_1 = require('@angular/forms');
-var router_1 = require('@angular/router');
-var heroapi_service_1 = require('./heroapi.service');
-var auth_service_1 = require('./auth.service');
+var core_1 = require("@angular/core");
+var forms_1 = require("@angular/forms");
+var router_1 = require("@angular/router");
+var heroapi_service_1 = require("./heroapi.service");
+var auth_service_1 = require("./auth.service");
 var LoginPageComponent = (function () {
     function LoginPageComponent(fb, apiservice, router, auth) {
         this.fb = fb;
@@ -37,15 +37,15 @@ var LoginPageComponent = (function () {
             console.log(err);
         });
     };
-    LoginPageComponent = __decorate([
-        core_1.Component({
-            moduleId: module.id,
-            selector: 'login-page',
-            templateUrl: 'login-page.html'
-        }), 
-        __metadata('design:paramtypes', [forms_1.FormBuilder, heroapi_service_1.HeroapiService, router_1.Router, auth_service_1.Auth])
-    ], LoginPageComponent);
     return LoginPageComponent;
 }());
+LoginPageComponent = __decorate([
+    core_1.Component({
+        moduleId: module.id,
+        selector: 'login-page',
+        templateUrl: 'login-page.html'
+    }),
+    __metadata("design:paramtypes", [forms_1.FormBuilder, heroapi_service_1.HeroapiService, router_1.Router, auth_service_1.Auth])
+], LoginPageComponent);
 exports.LoginPageComponent = LoginPageComponent;
 //# sourceMappingURL=login-page.component.js.map
