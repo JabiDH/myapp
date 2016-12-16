@@ -10,12 +10,26 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 var ng2_file_upload_1 = require("./ng2-file-upload/ng2-file-upload");
+var item_1 = require("./shop/models/item");
+var forms_1 = require("@angular/forms");
 var FileApiComponent = (function () {
-    function FileApiComponent() {
+    function FileApiComponent(fb) {
+        this.fb = fb;
         //public URL = 'https://evening-anchorage-3159.herokuapp.com/api/';
         this.URL = 'http://localhost:62412/api/fileupload';
-        this.uploader = new ng2_file_upload_1.FileUploader({ url: this.URL });
+        this.uploader = new ng2_file_upload_1.FileUploader({ url: this.URL, authToken: localStorage.getItem('id_token') });
+        this.createNewItemForm = this.fb.group({
+            name: ["", forms_1.Validators.required],
+            price: ["", forms_1.Validators.pattern('/^[1-9][0-9]*$/')]
+        });
+        this.item = new item_1.Item();
+        console.log(this.uploader);
     }
+    FileApiComponent.prototype.createNewItem = function (event) {
+        console.log(event);
+        console.log(this.item);
+        this.uploader.uploadAll();
+    };
     return FileApiComponent;
 }());
 FileApiComponent = __decorate([
@@ -24,7 +38,7 @@ FileApiComponent = __decorate([
         selector: 'file-api',
         templateUrl: 'file-upload.html'
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [forms_1.FormBuilder])
 ], FileApiComponent);
 exports.FileApiComponent = FileApiComponent;
 //# sourceMappingURL=fileapi.component.js.map

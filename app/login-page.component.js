@@ -22,7 +22,7 @@ var LoginPageComponent = (function () {
         this.email = 'gabih@sedata.com';
         this.loginForm = this.fb.group({
             email: ['', forms_1.Validators.required],
-            password: ['', forms_1.Validators.required]
+            password: ['', forms_1.Validators.pattern('^\[1-9][0-9]*\$')]
         });
     }
     LoginPageComponent.prototype.doLogin = function (event) {

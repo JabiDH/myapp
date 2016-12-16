@@ -43,10 +43,42 @@ namespace webapiangular2.Controllers
         //[ValidateMimeMultipartContentFilter]
         public async Task<FileResult> Post()
         {
-            string serverUploadFolder = HttpContext.Current.Server.MapPath("~/upload");
-
+            string serverUploadFolder = HttpContext.Current.Server.MapPath("~/items");
+            int nextItem = Directory.GetFiles(serverUploadFolder).Length + 1;
             var streamProvider = new MultipartFormDataStreamProvider(serverUploadFolder);
-            await Request.Content.ReadAsMultipartAsync(streamProvider);
+            await Request.Content.ReadAsMultipartAsync(streamProvider).ContinueWith(t =>
+            {
+                string filePath = streamProvider.FileData.Select(entry => entry.LocalFileName).ElementAt(0);
+                ContentDispositionHeaderValue contentDisposition = streamProvider.FileData.Select(entry => entry.Headers.ContentDisposition).ElementAt(0);
+
+                var info = new FileInfo(contentDisposition.FileName.Replace("\"", ""));
+                try
+                {
+                    var ext = Path.GetExtension(info.Name);
+                    var name = Path.GetFileNameWithoutExtension(info.Name);
+                    name = System.Text.RegularExpressions.Regex.Replace(name, @"\s", "%20");
+                    name = "item" + nextItem + ext;
+                    var fileStream = new FileStream((serverUploadFolder + "\\" + name), FileMode.CreateNew);
+                    using (var stream =  new FileStream(filePath, FileMode.Open))
+                    {
+                        int data = 0;
+                        while ((data = stream.ReadByte()) != -1)
+                        {
+                            fileStream.WriteByte((byte)data);
+                        }
+                        stream.Close();
+                    }
+                    fileStream.Close();
+                    File.Delete(filePath);
+                    return info;
+                }
+                catch (Exception)
+                {
+                    throw;
+                }    
+                
+
+            });
 
             return new FileResult
             {

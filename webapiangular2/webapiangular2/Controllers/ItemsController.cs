@@ -16,10 +16,11 @@ namespace webapiangular2.Controllers
 
         public ItemsController()
         {
-            if (repository.Count <= 0)
+            if (repository.Count <= 0 || System.IO.Directory.GetFiles(itemsFolder).Length != repository.Count)
             {
                 var images = System.IO.Directory.GetFiles(itemsFolder);
                 var random = new Random();
+                repository = new List<Item>();
                 for (int i = 1; i <= images.Length; i++)
                 {
                     repository.Add(new Item()

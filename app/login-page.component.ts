@@ -17,7 +17,7 @@ export class LoginPageComponent {
 
   public loginForm = this.fb.group({
     email: ['', Validators.required],
-    password: ['', Validators.required]
+    password: ['', Validators.pattern('^\[1-9][0-9]*\$')]
   });
 
   doLogin(event) {

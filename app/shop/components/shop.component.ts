@@ -8,7 +8,7 @@ import { Item } from '../../shop/models/item'
 })
 
 
-export abstract class ShopComponent {
+export class ShopComponent {
     public shoppingCart: Item[];
     public totalOfItems = 0;    
     constructor() {
