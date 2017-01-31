@@ -3,7 +3,7 @@ import { Component } from '@angular/core'
 import { ShopService } from '../../shop/services/shop.service'
 import { Item } from '../../shop/models/item'
 import { ShopComponent } from '../../shop/components/shop.component'
-
+import { Auth} from '../../auth.service'
 @Component({
     moduleId: module.id,
     selector: 'shop-content',
@@ -13,7 +13,7 @@ import { ShopComponent } from '../../shop/components/shop.component'
 export class ShopContentComponent extends ShopComponent {
     items: Item[];
     constructor(private shopService: ShopService, private router: Router) {
-        super();
+        super(new Auth(router));
         this.setItems();
     }
 
@@ -43,7 +43,11 @@ export class ShopContentComponent extends ShopComponent {
                 });
         })
     }
- 
+    
+    goToShoppingCart() {
+        let link = ['/shop/shoppingcart']
+        this.router.navigate(link);
+    }
 
 
 }

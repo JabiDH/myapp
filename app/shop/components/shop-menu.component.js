@@ -17,16 +17,21 @@ var router_1 = require("@angular/router");
 var core_1 = require("@angular/core");
 var shop_service_1 = require("../../shop/services/shop.service");
 var shop_component_1 = require("../../shop/components/shop.component");
+var auth_service_1 = require("../../auth.service");
 var ShopMenuComponent = (function (_super) {
     __extends(ShopMenuComponent, _super);
     function ShopMenuComponent(shopService, router) {
-        var _this = _super.call(this) || this;
+        var _this = _super.call(this, new auth_service_1.Auth(router)) || this;
         _this.shopService = shopService;
         _this.router = router;
         return _this;
     }
     ShopMenuComponent.prototype.goToShoppingCart = function () {
         var link = ['/shop/shoppingcart'];
+        this.router.navigate(link);
+    };
+    ShopMenuComponent.prototype.goToShop = function () {
+        var link = ['/shop'];
         this.router.navigate(link);
     };
     return ShopMenuComponent;

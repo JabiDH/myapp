@@ -17,10 +17,11 @@ var router_1 = require("@angular/router");
 var core_1 = require("@angular/core");
 var shop_service_1 = require("../../shop/services/shop.service");
 var shop_component_1 = require("../../shop/components/shop.component");
+var auth_service_1 = require("../../auth.service");
 var ShopContentComponent = (function (_super) {
     __extends(ShopContentComponent, _super);
     function ShopContentComponent(shopService, router) {
-        var _this = _super.call(this) || this;
+        var _this = _super.call(this, new auth_service_1.Auth(router)) || this;
         _this.shopService = shopService;
         _this.router = router;
         _this.setItems();
@@ -49,6 +50,10 @@ var ShopContentComponent = (function (_super) {
                 console.log(err);
             });
         });
+    };
+    ShopContentComponent.prototype.goToShoppingCart = function () {
+        var link = ['/shop/shoppingcart'];
+        this.router.navigate(link);
     };
     return ShopContentComponent;
 }(shop_component_1.ShopComponent));

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core'
 import { Item } from '../../shop/models/item'
-
+import { Auth } from '../../auth.service'
 @Component({
     moduleId: module.id,
     selector: 'shop',
@@ -10,8 +10,10 @@ import { Item } from '../../shop/models/item'
 
 export class ShopComponent {
     public shoppingCart: Item[];
-    public totalOfItems = 0;    
-    constructor() {
+    public totalOfItems = 0; 
+    
+    constructor(private auth: Auth) {
+        
         let cart = localStorage.getItem('shoppingCart');
         if (cart) {
             this.shoppingCart = JSON.parse(cart);
@@ -59,7 +61,7 @@ export class ShopComponent {
             localStorage.removeItem('shoppingCart');
             localStorage.setItem('shoppingCart', JSON.stringify(this.shoppingCart));
             console.log(this.shoppingCart);
-            console.log(this.totalOfItems);
+            console.log("total items in shopping cart " + this.totalOfItems);
         }
     } 
 }

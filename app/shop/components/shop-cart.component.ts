@@ -7,7 +7,8 @@ import { ShopService } from '../../shop/services/shop.service'
 @Component({
     moduleId: module.id,
     selector: 'shop-cart',
-    templateUrl: '../templates/shop-cart-template.html'
+    templateUrl: '../templates/shop-cart-template.html',
+    styleUrls: ['../styles/shop-styles.css']
 })
 
 export class ShoppingCartComponent {

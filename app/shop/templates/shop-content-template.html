@@ -1,4 +1,6 @@
+<div>You have {{totalOfItems}} items your <a (click)="goToShoppingCart()" *ngIf="auth.authenticated()">Shopping Cart</a></div>
 <div class="row">
+    
     <div *ngFor="let item of items" class="col-md-2">
         <img class="img-rounded" width="200" height="200" src="{{item.Image}}" />
         <p>Name: {{item.Name}}</p>

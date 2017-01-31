@@ -89,7 +89,8 @@ ShoppingCartComponent = __decorate([
     core_1.Component({
         moduleId: module.id,
         selector: 'shop-cart',
-        templateUrl: '../templates/shop-cart-template.html'
+        templateUrl: '../templates/shop-cart-template.html',
+        styleUrls: ['../styles/shop-styles.css']
     }),
     __metadata("design:paramtypes", [router_1.Router, shop_service_1.ShopService])
 ], ShoppingCartComponent);

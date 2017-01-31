@@ -14,7 +14,7 @@
             <ul class="nav navbar-nav">
                 <!--<li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>-->
                 <li><a routerLink="/home" routerLinkActive="active">Home</a>
-                    <li><a routerLink="/login" routerLinkActive="active" *ngIf="!auth.authenticated()">Login</a></li>
+                    <li><a (click)="auth.login()" routerLinkActive="active" *ngIf="!auth.authenticated()">Login</a></li>
                     <li><a routerLink="/dashboard" routerLinkActive="active" *ngIf="auth.authenticated()">Dashboard</a></li>
                     <li><a routerLink="/heroes" routerLinkActive="active" *ngIf="auth.authenticated()">Heroes</a></li>
                     <li><a routerLink="/uploadfile" routerLinkActive="active" *ngIf="auth.authenticated()">File Upload</a></li>

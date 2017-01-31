@@ -9,8 +9,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
+var auth_service_1 = require("../../auth.service");
 var ShopComponent = (function () {
-    function ShopComponent() {
+    function ShopComponent(auth) {
+        this.auth = auth;
         this.totalOfItems = 0;
         var cart = localStorage.getItem('shoppingCart');
         if (cart) {
@@ -57,7 +59,7 @@ var ShopComponent = (function () {
             localStorage.removeItem('shoppingCart');
             localStorage.setItem('shoppingCart', JSON.stringify(this.shoppingCart));
             console.log(this.shoppingCart);
-            console.log(this.totalOfItems);
+            console.log("total items in shopping cart " + this.totalOfItems);
         }
     };
     return ShopComponent;
@@ -68,7 +70,7 @@ ShopComponent = __decorate([
         selector: 'shop',
         templateUrl: '../templates/shop-template.html'
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [auth_service_1.Auth])
 ], ShopComponent);
 exports.ShopComponent = ShopComponent;
 //# sourceMappingURL=shop.component.js.map

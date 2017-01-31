@@ -43,6 +43,8 @@ var Auth = (function () {
         // This searches for an item in localStorage with key == 'id_token'
         return angular2_jwt_1.tokenNotExpired();
     };
+    Auth.prototype.isAdminUser = function () {
+    };
     Auth.prototype.logout = function () {
         // Remove token from localStorage
         localStorage.removeItem('id_token');

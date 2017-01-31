@@ -41,6 +41,10 @@ export class Auth {
         return tokenNotExpired();
     }
 
+    public isAdminUser(){
+        
+    }
+
     public logout() {
         // Remove token from localStorage
         localStorage.removeItem('id_token');
