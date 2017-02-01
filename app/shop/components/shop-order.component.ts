@@ -26,5 +26,6 @@ export class ShopOrderComponent {
                     console.log(err);
                 });
         }
+        
     }
 }

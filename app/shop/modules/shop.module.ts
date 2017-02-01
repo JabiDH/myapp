@@ -7,6 +7,7 @@ import { ShopContentComponent } from '../../shop/components/shop-content.compone
 import { ShopMenuComponent } from '../../shop/components/shop-menu.component'
 import { ShopService } from '../../shop/services/shop.service'
 import { ShopOrderComponent } from '../../shop/components/shop-order.component'
+import { ItemDetailComponent } from '../../shop/components/item-detail.component'
 
 @NgModule({
     providers: [ 
@@ -21,7 +22,8 @@ import { ShopOrderComponent } from '../../shop/components/shop-order.component'
         ShopContentComponent,
         ShoppingCartComponent,
         ShopOrderComponent,
-        ShopMenuComponent
+        ShopMenuComponent,
+        ItemDetailComponent
     ],
     exports: [
         ShopComponent

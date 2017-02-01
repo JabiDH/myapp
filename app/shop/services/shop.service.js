@@ -50,6 +50,15 @@ var ShopService = (function () {
             return Rx_1.Observable.throw(err.json().error || 'Server Error');
         });
     };
+    ShopService.prototype.getItemDetail = function (id) {
+        var url = this.apiUrl + "/api/items/" + id;
+        return this.http.get(url)
+            .map(function (response) { return response.json(); })
+            .catch(function (err) {
+            console.log(err);
+            return Rx_1.Observable.throw(err.json().error || 'Server Error');
+        });
+    };
     ShopService.prototype.getItemImage = function (id) {
         var url = this.apiUrl + "/api/fileupload/" + id;
         var file = {};

@@ -148,6 +148,7 @@
     <Compile Include="Controllers\HeroesController.cs" />
     <Compile Include="Controllers\ItemsController.cs" />
     <Compile Include="Controllers\OrdersController.cs" />
+    <Compile Include="Controllers\ReviewsController.cs" />
     <Compile Include="Controllers\UserAccountsController.cs" />
     <Compile Include="DAL\OrderLine.cs" />
     <Compile Include="Global.asax.cs">
@@ -158,6 +159,7 @@
     <Compile Include="Models\MyAppContext.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\Item.cs" />
+    <Compile Include="Models\Review.cs" />
     <Compile Include="Models\UserAccount.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

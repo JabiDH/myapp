@@ -20,6 +20,7 @@ var auth_guard_1 = require("./auth.guard");
 var shop_component_1 = require("./shop/components/shop.component");
 var shop_cart_component_1 = require("./shop/components/shop-cart.component");
 var shop_order_component_1 = require("./shop/components/shop-order.component");
+var item_detail_component_1 = require("./shop/components/item-detail.component");
 var routes = [
     { path: '', redirectTo: '/home', pathMatch: 'full' },
     { path: 'login', component: login_page_component_1.LoginPageComponent },
@@ -30,7 +31,8 @@ var routes = [
     { path: 'uploadfile', component: fileapi_component_1.FileApiComponent, canActivate: [auth_guard_1.AuthGuard] },
     { path: 'shop', component: shop_component_1.ShopComponent, canActivate: [auth_guard_1.AuthGuard] },
     { path: 'shop/shoppingcart', component: shop_cart_component_1.ShoppingCartComponent, canActivate: [auth_guard_1.AuthGuard] },
-    { path: 'orders', component: shop_order_component_1.ShopOrderComponent, canActivate: [auth_guard_1.AuthGuard] }
+    { path: 'orders', component: shop_order_component_1.ShopOrderComponent, canActivate: [auth_guard_1.AuthGuard] },
+    { path: 'items/detail/:id', component: item_detail_component_1.ItemDetailComponent, canActivate: [auth_guard_1.AuthGuard] }
 ];
 var AppRoutingModule = (function () {
     function AppRoutingModule() {

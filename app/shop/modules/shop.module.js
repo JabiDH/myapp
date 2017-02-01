@@ -17,6 +17,7 @@ var shop_content_component_1 = require("../../shop/components/shop-content.compo
 var shop_menu_component_1 = require("../../shop/components/shop-menu.component");
 var shop_service_1 = require("../../shop/services/shop.service");
 var shop_order_component_1 = require("../../shop/components/shop-order.component");
+var item_detail_component_1 = require("../../shop/components/item-detail.component");
 var ShopModule = (function () {
     function ShopModule() {
     }
@@ -36,7 +37,8 @@ ShopModule = __decorate([
             shop_content_component_1.ShopContentComponent,
             shop_cart_component_1.ShoppingCartComponent,
             shop_order_component_1.ShopOrderComponent,
-            shop_menu_component_1.ShopMenuComponent
+            shop_menu_component_1.ShopMenuComponent,
+            item_detail_component_1.ItemDetailComponent
         ],
         exports: [
             shop_component_1.ShopComponent

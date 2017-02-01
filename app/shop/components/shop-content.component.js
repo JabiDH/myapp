@@ -55,6 +55,10 @@ var ShopContentComponent = (function (_super) {
         var link = ['/shop/shoppingcart'];
         this.router.navigate(link);
     };
+    ShopContentComponent.prototype.goToItemDetail = function (id) {
+        var link = ["/items/detail/" + id];
+        this.router.navigate(link);
+    };
     return ShopContentComponent;
 }(shop_component_1.ShopComponent));
 ShopContentComponent = __decorate([

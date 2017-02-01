@@ -11,6 +11,7 @@ import { AuthGuard } from './auth.guard';
 import { ShopComponent } from './shop/components/shop.component';
 import { ShoppingCartComponent } from './shop/components/shop-cart.component'
 import { ShopOrderComponent } from './shop/components/shop-order.component'
+import { ItemDetailComponent } from './shop/components/item-detail.component'
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -22,7 +23,8 @@ const routes: Routes = [
   { path: 'uploadfile', component: FileApiComponent, canActivate: [AuthGuard] },
   { path: 'shop', component: ShopComponent, canActivate: [AuthGuard]},
   { path: 'shop/shoppingcart', component: ShoppingCartComponent, canActivate: [AuthGuard]},
-  { path: 'orders', component: ShopOrderComponent, canActivate: [AuthGuard]}
+  { path: 'orders', component: ShopOrderComponent, canActivate: [AuthGuard]},
+  { path: 'items/detail/:id', component: ItemDetailComponent, canActivate: [AuthGuard]}
 ];
 
 @NgModule({

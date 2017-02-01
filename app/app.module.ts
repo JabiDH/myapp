@@ -1,6 +1,6 @@
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
+import { ReactiveFormsModule }   from '@angular/forms';
 import { HttpModule, JsonpModule } from '@angular/http';
 import { AUTH_PROVIDERS }      from 'angular2-jwt';
 // Imports for loading & configuring the in-memory web api
@@ -29,7 +29,7 @@ import './rxjs-extensions';
 @NgModule({
   imports:      [ 
     BrowserModule, 
-    FormsModule,
+    //FormsModule,
     HttpModule,
      //InMemoryWebApiModule.forRoot(InMemoryDataService),
     AppRoutingModule,

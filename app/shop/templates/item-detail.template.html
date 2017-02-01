@@ -1,0 +1,23 @@
+<shop-menu> </shop-menu>
+<br/>
+<div *ngIf="item">
+    <img class="img-rounded" width="250" height="250" src="{{item.Image}}" />
+    <p>Name: {{item.Name}}</p>
+    <p>Price: ${{item.Price}}</p>
+    <button class="btn btn-default" (click)="addItemToShoppingCart(item)">Add</button>
+    <p>{{item.Reviews.length}} Reviews</p>
+    <li *ngFor="let review of item.Reviews">
+        <span>This review by {{review.Creater}} on {{review.DateCreated}} rated as {{review.rate}}</span>
+        <p>{{review.comment}}</p>        
+    </li>
+    <h3>Leave your review</h3>
+    <form [formGroup]="reviewForm">
+        <label for="rate">Rate</label>
+        <select name="reviewRate" id="rate">
+            <option *ngFor="let r of rates" value="r">{{r}}</option>           
+        </select>
+        <label for="comment">Comment</label>
+        <input type="text" name="reviewComment" >
+        <input type="submit" value="submit">
+    </form>
+</div>

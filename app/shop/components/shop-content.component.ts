@@ -11,7 +11,7 @@ import { Auth} from '../../auth.service'
 })
 
 export class ShopContentComponent extends ShopComponent {
-    items: Item[];
+    items: Item[];    
     constructor(private shopService: ShopService, private router: Router) {
         super(new Auth(router));
         this.setItems();
@@ -49,6 +49,10 @@ export class ShopContentComponent extends ShopComponent {
         this.router.navigate(link);
     }
 
+    goToItemDetail(id: number){
+        let link = [`/items/detail/${id}`];
+        this.router.navigate(link);
+    }
 
 }
 

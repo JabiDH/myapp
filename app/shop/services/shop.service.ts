@@ -51,6 +51,16 @@ export class ShopService {
             });
     }
 
+    getItemDetail(id: number): Observable<Item>{
+        let url = `${this.apiUrl}/api/items/${id}`;
+        return this.http.get(url)
+            .map(response => response.json() as Item)
+            .catch((err) => {
+                console.log(err);
+                return  Observable.throw(err.json().error || 'Server Error');
+            });
+    }
+
     getItemImage(id: number): Observable<string> {
         let url = `${this.apiUrl}/api/fileupload/${id}`;
         let file = {};

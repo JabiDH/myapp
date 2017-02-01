@@ -6,5 +6,6 @@
         <p>Name: {{item.Name}}</p>
         <p>Price: ${{item.Price}}</p>
         <button class="btn btn-default" (click)="addItemToShoppingCart(item)">Add</button>
+        <p>{{item.Reviews.length}} <a (click)="goToItemDetail(item.Id)">Reivews</a></p>
     </div>
 </div>

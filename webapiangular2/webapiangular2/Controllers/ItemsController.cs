@@ -28,7 +28,8 @@ namespace webapiangular2.Controllers
                         Id = i,
                         Name = "Item_"+i,
                         Price = random.Next(30),
-                        //Image = images[i-1]//string.Format("{0}\\item{1}.jpg", itemsFolder, i),
+                        Reviews = new List<Review>(),
+                        Image = string.Format("{0}/{1}","http://localhost:62412/api/fileupload", i)
                     });
                 }
                 

@@ -1,3 +1,5 @@
+import { Review } from "../../shop/models/Review";
+
 export class Item {
     
     Id: number;
@@ -6,7 +8,7 @@ export class Item {
     Quantity: number;
     Image: string;
     Total: number;
-
+    Reviews: Review[];
     constructor(){
         
     }
