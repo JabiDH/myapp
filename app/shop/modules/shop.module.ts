@@ -1,5 +1,5 @@
 import { NgModule }      from '@angular/core';
-import { FormsModule }   from '@angular/forms';
+import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
 import { CommonModule }       from '@angular/common';
 import { ShopComponent } from '../../shop/components/shop.component'
 import { ShoppingCartComponent } from '../../shop/components/shop-cart.component'
@@ -15,7 +15,8 @@ import { ItemDetailComponent } from '../../shop/components/item-detail.component
     ],
     imports: [
          CommonModule,
-         FormsModule 
+         FormsModule,
+         ReactiveFormsModule 
     ],
     declarations: [
         ShopComponent,

@@ -34,6 +34,12 @@ var ShopContentComponent = (function (_super) {
             console.log(items);
             items.forEach(function (item) {
                 item.Image = _this.shopService.apiUrl + "/api/fileupload/" + item.Id;
+                _this.shopService.getItemReviews(item.Id)
+                    .subscribe(function (reviews) {
+                    item.Reviews = reviews;
+                }, function (err) {
+                    console.log(err);
+                });
             });
             _this.items = items;
         }, function (err) {

@@ -18,10 +18,8 @@ var ItemDetailComponent = (function () {
         this.shopService = shopService;
         this.route = route;
         this.formBuilder = formBuilder;
-        this.reviewForm = this.formBuilder.group({});
         this.review = new review_1.Review();
         this.rates = this.getRates();
-        this.BuildReviewForm();
     }
     ItemDetailComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -29,6 +27,11 @@ var ItemDetailComponent = (function () {
             var id = +params['id']; // plus sign to convert string to number
             _this.getItemDetail(id);
         });
+        this.buildReviewForm();
+        //let rateControl = this.reviewForm.get('reviewRate');
+        //rateControl.setValue(5);
+        //let commentControl = this.reviewForm.get('reviewComment');
+        //commentControl.setValue('Type your comment', { emitEvent: true });
     };
     ItemDetailComponent.prototype.getItemDetail = function (id) {
         var _this = this;
@@ -36,6 +39,12 @@ var ItemDetailComponent = (function () {
             this.shopService.getItemDetail(id)
                 .subscribe(function (item) {
                 _this.item = item;
+                _this.shopService.getItemReviews(item.Id)
+                    .subscribe(function (reviews) {
+                    _this.item.Reviews = reviews;
+                }, function (error) {
+                    console.log(error);
+                });
                 console.log(_this.item);
             }, function (error) {
                 console.log(error);
@@ -50,15 +59,33 @@ var ItemDetailComponent = (function () {
     ItemDetailComponent.prototype.getRates = function () {
         var arr = [];
         for (var i = 1; i <= 5; i++) {
-            arr[i - 1] = i;
+            arr[i] = i;
         }
         return arr;
     };
-    ItemDetailComponent.prototype.BuildReviewForm = function () {
+    ItemDetailComponent.prototype.buildReviewForm = function () {
         this.reviewForm = this.formBuilder.group({
             reviewRate: this.formBuilder.control(null),
             reviewComment: this.formBuilder.control(null)
         });
+    };
+    ItemDetailComponent.prototype.onResetForm = function () {
+        this.reviewForm.reset();
+    };
+    ItemDetailComponent.prototype.onSubmitForm = function () {
+        //console.log(this.reviewForm.value);
+        var rateControl = this.reviewForm.get('reviewRate');
+        var commentControl = this.reviewForm.get('reviewComment');
+        var review = new review_1.Review();
+        review.Comment = commentControl.value;
+        review.Rate = rateControl.value;
+        review.DateCreated = new Date(Date.now());
+        review.Creater = JSON.parse(localStorage.getItem('profile')).name;
+        review.ItemId = this.item.Id;
+        this.item.Reviews.push(review);
+        this.shopService.postReview(review)
+            .subscribe(function (r) { return console.log(r); }, function (err) { return console.log(err); });
+        console.log(review);
     };
     return ItemDetailComponent;
 }());
@@ -68,9 +95,7 @@ ItemDetailComponent = __decorate([
         selector: 'item-detail',
         templateUrl: '../templates/item-detail.template.html'
     }),
-    __metadata("design:paramtypes", [shop_service_1.ShopService,
-        router_1.ActivatedRoute,
-        forms_1.FormBuilder])
+    __metadata("design:paramtypes", [shop_service_1.ShopService, router_1.ActivatedRoute, forms_1.FormBuilder])
 ], ItemDetailComponent);
 exports.ItemDetailComponent = ItemDetailComponent;
 //# sourceMappingURL=item-detail.component.js.map

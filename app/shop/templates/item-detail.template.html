@@ -7,17 +7,23 @@
     <button class="btn btn-default" (click)="addItemToShoppingCart(item)">Add</button>
     <p>{{item.Reviews.length}} Reviews</p>
     <li *ngFor="let review of item.Reviews">
-        <span>This review by {{review.Creater}} on {{review.DateCreated}} rated as {{review.rate}}</span>
-        <p>{{review.comment}}</p>        
+        <span>This review by {{review.Creater}} on {{review.DateCreated}} rated as {{review.Rate}}</span>
+        <p>{{review.Comment}}</p>
     </li>
     <h3>Leave your review</h3>
-    <form [formGroup]="reviewForm">
-        <label for="rate">Rate</label>
-        <select name="reviewRate" id="rate">
-            <option *ngFor="let r of rates" value="r">{{r}}</option>           
-        </select>
-        <label for="comment">Comment</label>
-        <input type="text" name="reviewComment" >
-        <input type="submit" value="submit">
+    <form [formGroup]="reviewForm" (ngSubmit)="onSubmitForm()">
+        <section>
+            <label for="rate">Rate</label>
+            <select id="rate" formControlName="reviewRate">
+                <option *ngFor="let r of rates" [ngValue]="r" >{{r}}</option>           
+            </select>
+        </section>
+        <section>
+            <label for="comment">Comment</label>
+            <textarea rows="4" cols="50" formControlName="reviewComment">
+            </textarea>
+        </section>
+        <button type="button" (click)="onResetForm()">Reset</button>
+        <button type="submit">Submit</button>
     </form>
 </div>

@@ -23,6 +23,15 @@ export class ShopContentComponent extends ShopComponent {
                 console.log(items);
                 items.forEach(item => {
                     item.Image = `${this.shopService.apiUrl}/api/fileupload/${item.Id}`;
+                    this.shopService.getItemReviews(item.Id)
+                        .subscribe(
+                            reviews => {
+                                item.Reviews = reviews;
+                            },
+                            err => {
+                                console.log(err);
+                            }
+                        )
                 });
                 this.items = items;
             },

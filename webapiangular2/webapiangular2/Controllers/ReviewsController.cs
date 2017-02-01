@@ -10,7 +10,15 @@ namespace webapiangular2.Controllers
 {
     public class ReviewsController : ApiController
     {
-        public List<Review> Repository = new List<Review>();
+        public static List<Review> Repository;
+
+        public ReviewsController()
+        {
+            if (Repository == null)
+            {
+                Repository = new List<Review>();
+            }
+        }
         // GET api/<controller>
         public IEnumerable<Review> Get()
         {
@@ -24,12 +32,13 @@ namespace webapiangular2.Controllers
         }
 
         // POST api/<controller>
-        public void Post(Review review)
+        public Review Post(Review review)
         {
             if (review != null)
             {
-                Repository.Add(review);
+                Repository.Add(review);                
             }
+            return review;
         }
 
         // PUT api/<controller>/5

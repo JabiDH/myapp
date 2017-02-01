@@ -30,7 +30,8 @@ ShopModule = __decorate([
         ],
         imports: [
             common_1.CommonModule,
-            forms_1.FormsModule
+            forms_1.FormsModule,
+            forms_1.ReactiveFormsModule
         ],
         declarations: [
             shop_component_1.ShopComponent,

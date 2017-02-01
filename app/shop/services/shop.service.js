@@ -59,6 +59,15 @@ var ShopService = (function () {
             return Rx_1.Observable.throw(err.json().error || 'Server Error');
         });
     };
+    ShopService.prototype.getItemReviews = function (itemId) {
+        var url = this.apiUrl + "/api/reviews/" + itemId;
+        return this.http.get(url)
+            .map(function (response) { return response.json(); })
+            .catch(function (err) {
+            console.log(err);
+            return Rx_1.Observable.throw(err.json().error || 'Server Error');
+        });
+    };
     ShopService.prototype.getItemImage = function (id) {
         var url = this.apiUrl + "/api/fileupload/" + id;
         var file = {};
@@ -76,6 +85,15 @@ var ShopService = (function () {
     ShopService.prototype.postOrder = function (order) {
         var url = this.apiUrl + "/api/orders";
         return this.http.post(url, order)
+            .map(function (r) { return r.json(); })
+            .catch(function (err) {
+            console.log(err);
+            return Rx_1.Observable.throw(err.json().error || 'Server Error');
+        });
+    };
+    ShopService.prototype.postReview = function (review) {
+        var url = this.apiUrl + "/api/reviews";
+        return this.http.post(url, review)
             .map(function (r) { return r.json(); })
             .catch(function (err) {
             console.log(err);

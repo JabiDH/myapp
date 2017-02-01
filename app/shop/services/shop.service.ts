@@ -7,6 +7,7 @@ import 'rxjs/add/operator/catch';
 
 import { Order } from '../../shop/models/order'
 import { Item } from '../../shop/models/item'
+import { Review } from '../../shop/models/review'
 
 
 
@@ -61,6 +62,16 @@ export class ShopService {
             });
     }
 
+    getItemReviews(itemId: number): Observable<Review[]>{
+        let url = `${this.apiUrl}/api/reviews/${itemId}`;
+        return this.http.get(url)   
+                .map(response => response.json() as Review[])
+                .catch((err) => {
+                    console.log(err);
+                    return  Observable.throw(err.json().error || 'Server Error');
+                });
+    }
+
     getItemImage(id: number): Observable<string> {
         let url = `${this.apiUrl}/api/fileupload/${id}`;
         let file = {};
@@ -80,6 +91,16 @@ export class ShopService {
         let url = `${this.apiUrl}/api/orders`;
         return this.http.post(url, order)
             .map(r => r.json() as Order)
+            .catch((err: any) => {
+                console.log(err);
+                return Observable.throw(err.json().error || 'Server Error');
+            });
+    }
+
+    postReview(review: Review): Observable<Review> {
+        let url = `${this.apiUrl}/api/reviews`       ;
+        return this.http.post(url, review)
+            .map(r => r.json() as Review)
             .catch((err: any) => {
                 console.log(err);
                 return Observable.throw(err.json().error || 'Server Error');
