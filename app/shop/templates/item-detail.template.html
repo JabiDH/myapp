@@ -13,13 +13,22 @@
     <h3>Leave your review</h3>
     <form [formGroup]="reviewForm" (ngSubmit)="onSubmitForm()">
         <section>
+            <div class="acidjs-rating-stars">
+                <input type="radio" name="reviewRate" id="group-1-0" value="5" formControlName="reviewRate" /><label for="group-1-0"></label>
+                <input type="radio" name="reviewRate" id="group-1-1" value="4" formControlName="reviewRate" /><label for="group-1-1"></label>
+                <input type="radio" name="reviewRate" id="group-1-2" value="3" formControlName="reviewRate" /><label for="group-1-2"></label>
+                <input type="radio" name="reviewRate" id="group-1-3" value="2" formControlName="reviewRate" /><label for="group-1-3"></label>
+                <input type="radio" name="reviewRate" id="group-1-4" value="1" formControlName="reviewRate" /><label for="group-1-4"></label>
+            </div>
+        </section>
+        <!--<section>
             <label for="rate">Rate</label>
             <select id="rate" formControlName="reviewRate">
                 <option *ngFor="let r of rates" [ngValue]="r" >{{r}}</option>           
             </select>
-        </section>
+        </section>-->
         <section>
-            <label for="comment">Comment</label>
+            <!--<label for="comment">Comment</label>-->
             <textarea rows="4" cols="50" formControlName="reviewComment">
             </textarea>
         </section>
