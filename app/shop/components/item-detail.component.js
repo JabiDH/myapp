@@ -42,6 +42,7 @@ var ItemDetailComponent = (function () {
                 _this.shopService.getItemReviews(item.Id)
                     .subscribe(function (reviews) {
                     _this.item.Reviews = reviews;
+                    _this.item.Rate = _this.getItemRate(reviews);
                 }, function (error) {
                     console.log(error);
                 });
@@ -54,6 +55,15 @@ var ItemDetailComponent = (function () {
             console.log("getItemDetail() -> " + error);
         }
         finally {
+        }
+    };
+    ItemDetailComponent.prototype.getItemRate = function (reviews) {
+        if (reviews) {
+            var sum_1 = 0;
+            reviews.forEach(function (review) {
+                sum_1 += review.Rate;
+            });
+            return sum_1 / reviews.length;
         }
     };
     ItemDetailComponent.prototype.getRates = function () {

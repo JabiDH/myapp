@@ -9,6 +9,7 @@ export class Item {
     Image: string;
     Total: number;
     Reviews: Review[];
+    Rate: number;
     constructor(){
         
     }

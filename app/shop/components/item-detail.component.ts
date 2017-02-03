@@ -43,6 +43,7 @@ export class ItemDetailComponent {
                         .subscribe(
                             reviews => {
                                 this.item.Reviews = reviews;
+                                this.item.Rate = this.getItemRate(reviews);
                             },
                             error => {
                                 console.log(error);
@@ -58,6 +59,16 @@ export class ItemDetailComponent {
             console.log(`getItemDetail() -> ${error}`);
         } finally {
 
+        }
+    }
+
+    getItemRate(reviews: Review[]): number{
+        if(reviews){
+            let sum = 0;
+            reviews.forEach(review => {
+                sum += review.Rate;
+            });
+            return  sum/reviews.length;
         }
     }
 
