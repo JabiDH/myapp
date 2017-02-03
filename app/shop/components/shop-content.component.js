@@ -37,6 +37,7 @@ var ShopContentComponent = (function (_super) {
                 _this.shopService.getItemReviews(item.Id)
                     .subscribe(function (reviews) {
                     item.Reviews = reviews;
+                    item.Rate = _this.getItemRate(reviews);
                 }, function (err) {
                     console.log(err);
                 });
@@ -64,6 +65,40 @@ var ShopContentComponent = (function (_super) {
     ShopContentComponent.prototype.goToItemDetail = function (id) {
         var link = ["/items/detail/" + id];
         this.router.navigate(link);
+    };
+    ShopContentComponent.prototype.getItemRate = function (reviews) {
+        if (reviews) {
+            var sum_1 = 0;
+            reviews.forEach(function (review) {
+                sum_1 += review.Rate;
+            });
+            if (sum_1 == 0)
+                return 0;
+            return sum_1 / reviews.length;
+        }
+    };
+    ShopContentComponent.prototype.setItemReviewStart = function (rate, index) {
+        var checked = "checked";
+        var unchecked = "";
+        //console.log(rate + " " + index);
+        switch (index) {
+            case 1: {
+                return (rate > 0 && rate <= 1) ? checked : unchecked;
+            }
+            case 2: {
+                return (rate > 1 && rate <= 2) ? checked : unchecked;
+            }
+            case 3: {
+                return (rate > 2 && rate <= 3) ? checked : unchecked;
+            }
+            case 4: {
+                return (rate > 3 && rate <= 4) ? checked : unchecked;
+            }
+            case 5: {
+                return (rate > 4 && rate <= 5) ? checked : unchecked;
+            }
+            default: return unchecked;
+        }
     };
     return ShopContentComponent;
 }(shop_component_1.ShopComponent));

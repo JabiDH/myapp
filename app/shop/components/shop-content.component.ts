@@ -4,6 +4,8 @@ import { ShopService } from '../../shop/services/shop.service'
 import { Item } from '../../shop/models/item'
 import { ShopComponent } from '../../shop/components/shop.component'
 import { Auth} from '../../auth.service'
+import { Review } from '../../shop/models/review'
+
 @Component({
     moduleId: module.id,
     selector: 'shop-content',
@@ -27,6 +29,7 @@ export class ShopContentComponent extends ShopComponent {
                         .subscribe(
                             reviews => {
                                 item.Reviews = reviews;
+                                item.Rate = this.getItemRate(reviews);
                             },
                             err => {
                                 console.log(err);
@@ -62,6 +65,42 @@ export class ShopContentComponent extends ShopComponent {
         let link = [`/items/detail/${id}`];
         this.router.navigate(link);
     }
+
+    getItemRate(reviews: Review[]): number{
+        if(reviews){
+            let sum = 0;
+            reviews.forEach(review => {
+                sum += review.Rate;
+            });
+            if(sum == 0) return 0;
+            return  sum/reviews.length;
+        }
+    }
+
+    setItemReviewStart(rate: number, index: number): string{
+        let checked = "checked";
+        let unchecked = "";
+        //console.log(rate + " " + index);
+        switch(index){
+            case 1: {
+                return (rate > 0 && rate <= 1) ? checked : unchecked;
+            }
+            case 2: {
+                return (rate > 1 && rate <= 2) ? checked : unchecked;
+            }
+            case 3: {
+                return (rate > 2 && rate <= 3) ? checked : unchecked;
+            }
+            case 4: {
+                return (rate > 3 && rate <= 4) ? checked : unchecked;
+            }
+            case 5: {
+                return (rate > 4 && rate <= 5) ? checked : unchecked;
+            }
+            default: return unchecked;
+        }
+    }
+
 
 }
 

@@ -1,11 +1,21 @@
 <div>You have {{totalOfItems}} items your <a (click)="goToShoppingCart()" *ngIf="auth.authenticated()">Shopping Cart</a></div>
 <div class="row">
-    
     <div *ngFor="let item of items" class="col-md-2">
         <img class="img-rounded" width="200" height="200" src="{{item.Image}}" />
         <p>Name: {{item.Name}}</p>
         <p>Price: ${{item.Price}}</p>
         <button class="btn btn-default" (click)="addItemToShoppingCart(item)">Add</button>
-        <p>{{item.Reviews.length}} <a (click)="goToItemDetail(item.Id)">Reivews</a></p>
+        <p>
+            {{item.Reviews.length}} <a (click)="goToItemDetail(item.Id)">Reivews</a>
+            <span class="acidjs-rating-stars acidjs-rating-disabled">
+                <form>
+                    <input disabled="disabled" type="radio" checked="{{setItemReviewStart(item.Rate, 5)}}" name="group-3" id="group-3-0" value="5" /><label for="group-3-0"></label>
+                    <input disabled="disabled" type="radio" checked="{{setItemReviewStart(item.Rate, 4)}}" name="group-3" id="group-3-1" value="4" /><label for="group-3-1"></label>
+                    <input disabled="disabled" type="radio" checked="{{setItemReviewStart(item.Rate, 3)}}" name="group-3" id="group-3-2" value="3" /><label for="group-3-2"></label>
+                    <input disabled="disabled" type="radio" checked="{{setItemReviewStart(item.Rate, 2)}}" name="group-3" id="group-3-3" value="2" /><label for="group-3-3"></label>
+                    <input disabled="disabled" type="radio" checked="{{setItemReviewStart(item.Rate, 1)}}" name="group-3" id="group-3-4"  value="1" /><label for="group-3-4"></label>
+                </form>
+            </span>
+        </p>
     </div>
 </div>
