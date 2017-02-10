@@ -21,16 +21,29 @@ namespace webapiangular2.Controllers
                 var images = System.IO.Directory.GetFiles(itemsFolder);
                 var random = new Random();
                 repository = new List<Item>();
+                //var reviews = new List<Review>();
                 for (int i = 1; i <= images.Length; i++)
                 {
+                    //for (int j = 0; j < 5; j++)
+                    //{
+                    //    var review = new Review() {
+                    //        Rate = random.Next(5),
+                    //        Creater = "TEST",
+                    //        DateCreated = DateTime.Now,
+                    //        Comment = "Some Comment",
+                    //        ItemId = i,
+                    //    };
+                    //    reviews.Add(review);
+                    //}
                     repository.Add(new Item()
                     {
                         Id = i,
-                        Name = "Item_"+i,
+                        Name = "Item_" + i,
                         Price = random.Next(30),
                         Reviews = new List<Review>(),
                         Image = string.Format("{0}/{1}","http://localhost:62412/api/fileupload", i)
                     });
+                    //reviews = new List<Review>();
                 }
                 
             }
