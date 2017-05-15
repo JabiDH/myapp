@@ -12,6 +12,7 @@ var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 var order_1 = require("../../shop/models/order");
 var shop_service_1 = require("../../shop/services/shop.service");
+var stripe_form_component_1 = require("../../shop/components/stripe-form.component");
 var ShoppingCartComponent = (function () {
     function ShoppingCartComponent(router, shopService) {
         this.router = router;
@@ -77,6 +78,13 @@ var ShoppingCartComponent = (function () {
                     console.log(err);
                 });
             }
+        }
+    };
+    // Pay by Stripe
+    ShoppingCartComponent.prototype.payOrder = function () {
+        if (this.order) {
+            var stripeForm = new stripe_form_component_1.StripeFormComponent();
+            stripeForm.openCheckout();
         }
     };
     ShoppingCartComponent.prototype.preciseRound = function (num, decimals) {

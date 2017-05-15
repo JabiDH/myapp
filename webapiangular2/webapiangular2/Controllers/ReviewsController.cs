@@ -22,7 +22,7 @@ namespace webapiangular2.Controllers
                 var random = new Random();
                 for (int i = 1; i <= nbrOfItems; i++)
                 {
-                    var n = random.Next(50, 100);
+                    var n = random.Next(1, 10);
                     for (int j = 1; j <= n; j++)
                     {
                         var review = new Review() {
@@ -47,6 +47,11 @@ namespace webapiangular2.Controllers
         // GET api/<controller>/id
         public IEnumerable<Review> Get(int id)
         {
+            if (Repository.Count <= 0)
+            {
+                return null;
+
+            }
             return Repository.Where(review => review.ItemId == id);
         }
 

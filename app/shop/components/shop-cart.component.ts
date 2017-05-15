@@ -3,6 +3,7 @@ import { Router } from '@angular/router'
 import { Order } from '../../shop/models/order'
 import { Item } from '../../shop/models/item'
 import { ShopService } from '../../shop/services/shop.service'
+import { StripeFormComponent} from '../../shop/components/stripe-form.component'
 
 @Component({
     moduleId: module.id,
@@ -78,6 +79,14 @@ export class ShoppingCartComponent {
                         console.log(err);
                     })
             }
+        }
+    }
+
+    // Pay by Stripe
+    payOrder(){
+        if(this.order){
+            var stripeForm = new StripeFormComponent();
+            stripeForm.openCheckout();
         }
     }
 

@@ -16,10 +16,12 @@
     <script src="node_modules/reflect-metadata/Reflect.js"></script>
     <script src="node_modules/systemjs/dist/system.src.js"></script>
     <!-- 2. Configure SystemJS -->
-    <script src="systemjs.config.js"></script>
+    <script src="systemjs.config.js"></script>    
     <script>
       System.import('app').catch(function(err){ console.error(err); });
     </script>
+    <!-- Stripe script -->
+    <script src="https://checkout.stripe.com/checkout.js"></script>
   </head>
   <!-- 3. Display the application -->
   <body>
